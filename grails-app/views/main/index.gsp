@@ -140,7 +140,20 @@
       </div>
       
       <!--Blog list-->
-      
+       <g:each in="${posts}">
+	        <div class="row has-margin-bottom">
+	        <div class="col-md-4 col-sm-4" style='height:150px;overflow:hidden'>  
+	        
+	        	<img class="img-responsive center-block" src="${it.image}" alt="bulletin blog"> 
+	        
+	        </div>
+	        <div class="col-md-8 col-sm-8 bulletin">
+	          <h4 class="media-heading">${it.title}</h4>
+	          <p>on <g:formatDate date="${it.published.toDate()}" format="EEE, d MMM yyyy" locale="en"/> by <a href="${it.author.url}" class="link-reverse"  target="_blank">${it.author.displayName}</a></p>
+	          <p> ${raw(it.shortContent)}</p>
+	          <a class="btn btn-primary" href="${createLink(controller: 'blog', action: 'show')}" role="button">Read Article →</a> </div>
+	    </div>
+       </g:each>
       <div class="row has-margin-bottom">
         <div class="col-md-4 col-sm-4"> <img class="img-responsive center-block" src="${resource(dir: 'images', file: 'thumb-1.jpg')}" alt="bulletin blog"> </div>
         <div class="col-md-8 col-sm-8 bulletin">

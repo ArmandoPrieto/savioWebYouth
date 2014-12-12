@@ -1,11 +1,26 @@
 package savioWebPage;
-
+import org.joda.time.DateTime;
 public class Post {
 	
 	String title;
 	String content;
 	String shortContent;
 	String image;
+	Author author;
+	DateTime published;
+	
+	public DateTime getPublished() {
+		return published;
+	}
+	public void setPublished(DateTime published) {
+		this.published = published;
+	}
+	public Author getAuthor() {
+		return author;
+	}
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
 	public String getTitle() {
 		return title;
 	}
