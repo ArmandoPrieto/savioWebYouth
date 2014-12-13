@@ -80,10 +80,14 @@
       <article class="blog-content">
        ${raw(postInstance.content)}
       </article>
+      <div class="tag-cloud has-margin-bottom"> 
+      	<h4>Labels</h4>
+      	<g:each in="${postInstance.labels}"><a href="#">${it}</a></g:each>
+      </div>
       <section class="comments-block">
-        <h3 class="comments-head">4 Comments</h3>
+        <h3 class="comments-head">Comments</h3>
           <g:each in="${comentList}">
-	      <div class="media"> <a class="pull-left" href="#"> <img class="media-object" alt="avatar" src="${resource(dir:"images", file:"avatar-1.jpg")}"> </a>
+	      <div class="media"> <a class="pull-left" href="#"> <img class="media-object" alt="avatar" src="${it.author.imageUrl}"> </a>
 	          <div class="media-body">
 	            <h6 class="media-heading">${it.author.displayName}</h6>
 	            <p class="text-muted"><g:formatDate date="${it.published.toDate()}" format="EEE, d MMM yyyy" locale="en"/> at 
@@ -92,7 +96,7 @@
 	          
 	          
 	           <g:each in="${it.reply}" var="reply">
-		          <div class="media"> <a class="pull-left" href="#"> <img class="media-object" alt="avatar" src="${resource(dir:"images", file:"avatar-1.jpg")}"> </a>
+		          <div class="media"> <a class="pull-left" href="#"> <img class="media-object" alt="avatar" src="${reply.author.imageUrl}"> </a>
 	              <div class="media-body">
 		            <h6 class="media-heading">${reply.author.displayName}</h6>
 		           <p class="text-muted"><g:formatDate date="${reply.published.toDate()}" format="EEE, d MMM yyyy" locale="en"/> at 
@@ -139,6 +143,7 @@
     
     <!--Blog Sidebar-->
     <div class="col-md-3">
+    <%--
       <div class="blog-search has-margin-xs-bottom">
         <div class="input-group input-group-lg">
           <input type="text" class="form-control" placeholder="Search..">
@@ -161,125 +166,17 @@
           <li><a href="#">October 2013 <span class="badge pull-right">28</span> </a></li>
         </ul>
       </div>
-      <div class="tag-cloud has-margin-bottom"> <a href="#">catholic</a> <a href="#">bulletin</a> <a href="#">programs</a> <a href="#">events</a> <a href="#">church</a> <a href="#">charity</a> <a href="#">website</a> <a href="#">template</a> <a href="#">non-profit</a> <a href="#">belief</a> <a href="#">ministry</a> <a href="#">sermon</a> <a href="#">nature</a> </div>
+      
+      <div class="tag-cloud has-margin-bottom"> 
+       <h4>Labels</h4>
+      	<g:each in="${postInstance.labels}"><a href="#">${it}</a></g:each>
+      </div>--%>
     </div>
-  </div>
+   
+  </div> 
 </div>
 
-<!-- SUBSCRIBE -->
-<div class="highlight-bg">
-  <div class="container">
-    <div class="row">
-      <form action="subscribe.php" method="post" class="form subscribe-form" role="form" id="subscribeForm">
-        <div class="form-group col-md-3 hidden-sm">
-          <h5 class="susbcribe-head"> SUBSCRIBE <span>TO OUR NEWSLETTER</span></h5>
-        </div>
-        <div class="form-group col-sm-8 col-md-6">
-          <label class="sr-only">Email address</label>
-          <input type="email" class="form-control input-lg" placeholder="Enter email" name="email" id="address" data-validate="validate(required, email)" required>
-          <span class="help-block" id="result"></span> </div>
-        <div class="form-group col-sm-4 col-md-3">
-          <button type="submit" class="btn btn-lg btn-primary btn-block">Subscribe Now →</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<!-- END SUBSCRIBE --> 
+<g:render template="/common/bottom" model="${newsletterInstance}"/>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6 col-md-3">
-        <h5>ABOUT THE CHURCH</h5>
-        <p>For the word of God is living and active. Sharper than any double-edged sword, it penetrates even to dividing soul and spirit, joints and marrow; it judges the thoughts and attitudes.</p>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <h5>QUICK LINKS</h5>
-        <ul class="footer-links">
-          <li><a href="#">Upcoming events</a></li>
-          <li><a href="#">Ministries</a></li>
-          <li><a href="#">Recent Sermons</a></li>
-          <li><a href="#">Contact us</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <h5>OUR ADDRESS</h5>
-        <p>Catholic Church<br>
-          121 King Street, Melbourne <br>
-          Victoria 3000 Australia<br>
-          <br>
-          Phone: +61 3 8376 6284<br>
-          Email: <a href="#">mail@catholicwebsite.com</a></p>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <h5>CONNECT</h5>
-        <div class="social-icons"><a href="#"><img src="images/fb-icon.png" alt="social"></a> <a href="#"><img src="images/tw-icon.png" alt="social"></a> <a href="#"><img src="images/in-icon.png" alt="social"></a></div>
-      </div>
-    </div>
-  </div>
-  <div class="copyright">
-    <div class="container">
-      <p class="text-center">Copyright © 2014 All rights reserved</p>
-    </div>
-  </div>
-</footer>
-<!-- END FOOTER --> 
-
-<!-- Bootstrap core JavaScript
-================================================== --> 
-<!-- Placed at the end of the document so the pages load faster --> 
-<script src="js/jquery.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/ketchup.all.js"></script> 
-
-<!--============== SUBSCRIBE FORM =================--> 
-
-<script>
-
-$(function(){
- var shrinkHeader = 300;
-  $(window).scroll(function() {
-    var scroll = getCurrentScroll();
-      if ( scroll >= shrinkHeader ) {
-           $('.navbar').addClass('shrink');
-        }
-        else {
-            $('.navbar').removeClass('shrink');
-        }
-  });
-function getCurrentScroll() {
-    return window.pageYOffset || document.documentElement.scrollTop;
-    }
-});
-
-</script> 
-
-<!--============== SUBSCRIBE FORM =================--> 
-
-<script>
-$(document).ready(function() {
-	$('#subscribeForm').ketchup().submit(function() {
-		if ($(this).ketchup('isValid')) {
-			var action = $(this).attr('action');
-			$.ajax({
-				url: action,
-				type: 'POST',
-				data: {
-					email: $('#address').val()
-				},
-				success: function(data){
-					$('#result').html(data);
-				},
-				error: function() {
-					$('#result').html('Sorry, an error occurred.');
-				}
-			});
-		}
-		return false;
-	});
-});
-</script>
 </body>
 </html>

@@ -74,7 +74,7 @@ class GoogleBloggerReaderService {
 			
 			
 			post.setContent(clean)
-			post.setShortContent(cortarCadenaPorPuntos(clean, 200).toString())
+			post.setShortContent(cortarCadenaPorPuntos(clean, 300).toString())
 			println(post.content)
 			println(post.shortContent)
 			
@@ -137,6 +137,12 @@ class GoogleBloggerReaderService {
 			parseDate = df.parse(resp.json.published.toString());
 			published = new DateTime(parseDate.getTime());
 			post.setPublished(published)
+			def labelList = []
+			resp.json.labels.each{
+				
+				labelList.add(it.toString())
+			}
+			post.setLabels(labelList)
 			
 		return post
 	}

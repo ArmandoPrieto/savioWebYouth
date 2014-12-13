@@ -93,12 +93,8 @@
    		</g:each>
      <!-- /.col-md-4 -->
      
-    <div class="col-md-4 col-sm-8 col-sm-offset-2 col-md-offset-0 center-this has-margin-bottom"> <img class="img-responsive" src="${resource(dir: 'images', file: 'thumb-3.jpg')}" alt="bulletin programs">
-      <h5>CHRIST OCCUPIED</h5>
-      <p>It may sound good to Mankind to be self-occupied. But God wants you to be Christ-Occupied and receive all of your blessings through resting in the work of Jesus.</p>
-      <p><a href="events-programs.html" role="button">View details →</a></p>
-    </div>
-    <!-- /.col-md-4 --> 
+  
+   
   </div>
 </div>
 <!-- // END FEATURED BLOCK--> 
@@ -138,14 +134,11 @@
       <div class="section-title left-align-desktop">
         <h4> LATEST BULLETIN </h4>
       </div>
-      
       <!--Blog list-->
        <g:each in="${posts}">
 	        <div class="row has-margin-bottom">
 	        <div class="col-md-4 col-sm-4" style='height:150px;overflow:hidden'>  
-	        
 	        	<img class="img-responsive center-block" src="${it.image}" alt="bulletin blog"> 
-	        
 	        </div>
 	        <div class="col-md-8 col-sm-8 bulletin">
 	          <h4 class="media-heading">${it.title}</h4>
@@ -154,26 +147,8 @@
 	          <a class="btn btn-primary" href="${createLink(controller: 'blog', action: 'show',id:it.postId)}" role="button">Read Article →</a> </div>
 	    </div>
        </g:each>
-      <div class="row has-margin-bottom">
-        <div class="col-md-4 col-sm-4"> <img class="img-responsive center-block" src="${resource(dir: 'images', file: 'thumb-1.jpg')}" alt="bulletin blog"> </div>
-        <div class="col-md-8 col-sm-8 bulletin">
-          <h4 class="media-heading">Perseverance of the Saints </h4>
-          <p>on 17th June 2014 by <a href="#" class="link-reverse">Vincent John</a></p>
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet...</p>
-          <a class="btn btn-primary" href="blog-single.html" role="button">Read Article →</a> </div>
-      </div>
-      
       <!--Blog list-->
-      
-      <div class="row">
-        <div class="col-md-4 col-sm-4"> <img class="img-responsive center-block" src="${resource(dir: 'images', file: 'thumb-2.jpg')}" alt="bulletin blog"> </div>
-        <div class="col-md-8 col-sm-8 bulletin"><p>
-          <h4 class="media-heading">Lord is Sufficient for all of our needs </h4>
-          <p>on 17th June 2014 by <a href="#" class="link-reverse">Jose Mathew</a></p>
-          <p class="media-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet...</p>
-          <a class="btn btn-primary" href="blog-single.html" role="button">Read Article →</a> </div>
-      </div>
-    </div>
+     </div>
     <!--// col md 9--> 
     
     <!--Latest Sermons-->
@@ -330,70 +305,7 @@
 </div>
 <!-- // END OUR MINISTRIES--> 
 
-<!-- SUBSCRIBE -->
-<div class="highlight-bg">
-  <div class="container">
-    <div class="row">
-    
-  
-        <g:formRemote url="[resource:newsletterInstance, action:'save']" update="result" name="newsletterIndexForm">
-        <div class="form-group col-md-3 hidden-sm">
-          <h5 class="susbcribe-head"> SUBSCRIBE <span>TO OUR NEWSLETTER</span></h5>
-        </div>
-        <div class="form-group col-sm-8 col-md-6">
-          <label class="sr-only">Email address</label>
-          <input type="email" class="form-control input-lg" placeholder="Enter email" name="email" id="address" data-validate="validate(required, email)" required>
-          <input type="hidden" name="newsletterIndexFormSubmit" id="newsletterIndexFormSubmit" value="true">
-          
-          <span class="help-block" id="result"></span> </div>
-        <div class="form-group col-sm-4 col-md-3">
-          <button type="submit" class="btn btn-lg btn-primary btn-block" name="submit">Keep in touch →</button>
-        </div>
-    </g:formRemote>
-    </div>
-  </div>
-</div>
-<!-- END SUBSCRIBE --> 
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6 col-md-3">
-        <h5>ABOUT THE CHURCH</h5>
-        <p>For the word of God is living and active. Sharper than any double-edged sword, it penetrates even to dividing soul and spirit, joints and marrow; it judges the thoughts and attitudes.</p>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <h5>QUICK LINKS</h5>
-        <ul class="footer-links">
-          <li><a href="#">Upcoming events</a></li>
-          <li><a href="#">Ministries</a></li>
-          <li><a href="#">Recent Sermons</a></li>
-          <li><a href="#">Contact us</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <h5>OUR ADDRESS</h5>
-        <p> St. Dominic Savio Church<br>
-          13400 Bellflower Blvd. <br>
-          Bellflower, CA<br>
-          <br>
-         
-          Email: <a href="#">youthministry@saintdominicsavio.org</a></p>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <h5>CONNECT</h5>
-        <div class="social-icons"><a href="#"><img src="${resource(dir: 'images', file: 'fb-icon.png')}" alt="social"></a> <a href="#"><img src="${resource(dir: 'images', file: 'in-icon.png')}" alt="social"></a> <a href="#"><img src="${resource(dir: 'images', file: 'tw-icon.png')}" alt="social"></a></div>
-      </div>
-    </div>
-  </div>
-  <div class="copyright">
-    <div class="container">
-      <p class="text-center">Copyright © 2014 All rights reserved</p>
-    </div>
-  </div>
-</footer>
-<!-- // END FOOTER --> 
+<g:render template="/common/bottom" model="${newsletterInstance}"/>
 
 <!-- // END --> 
 

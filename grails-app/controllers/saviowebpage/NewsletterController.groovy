@@ -33,8 +33,14 @@ class NewsletterController {
         }
 
         if (newsletterInstance.hasErrors()) {
-            respond newsletterInstance.errors, view:'create'
-            return
+			if(params.newsletterIndexFormSubmit){
+				
+				render "An error has ocurred"
+				return
+			}else{
+	            respond newsletterInstance.errors, view:'create'
+	            return
+			}
         }
 
         newsletterInstance.save flush:true
