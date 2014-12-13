@@ -67,8 +67,8 @@
 
 <div class="subpage-head has-margin-bottom">
   <div class="container">
-    <h3>Perseverance of the Saints </h3>
-    <p class="lead">on 17th June 2014 by <a href="#" class="link-reverse">Vincent John</a></p>
+    <h3>${postInstance.title}</h3>
+    <p class="lead">on <g:formatDate date="${postInstance.published.toDate()}" format="EEE, d MMM yyyy" locale="en"/> by <a href="${postInstance.author.url}" class="link-reverse"  target="_blank" class="link-reverse">${postInstance.author.displayName}</a></p>
   </div>
 </div>
 
@@ -78,54 +78,35 @@
   <div class="row">
     <div class="col-md-9 has-margin-bottom">
       <article class="blog-content">
-        <p class="lead">Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo.</p>
-        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-        <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-        <blockquote>
-          <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        </blockquote>
-        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-        <h4>Sub-heading</h4>
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-        <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-        <h6>Another heading</h6>
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <ul>
-          <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-          <li>Donec id elit non mi porta gravida at eget metus.</li>
-          <li>Nulla vitae elit libero, a pharetra augue.</li>
-        </ul>
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p>Penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+       ${raw(postInstance.content)}
       </article>
       <section class="comments-block">
         <h3 class="comments-head">4 Comments</h3>
-        <div class="media"> <a class="pull-left" href="#"> <img class="media-object" alt="avatar" src="images/avatar-1.jpg"> </a>
-          <div class="media-body">
-            <h6 class="media-heading">James Norton</h6>
-            <p class="text-muted">Aug 10, 2014 at 10:20 am</p>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </div>
-        </div>
-        <div class="media"> <a class="pull-left" href="#"> <img class="media-object" alt="avatar" src="images/avatar-2.jpg"> </a>
-          <div class="media-body">
-            <h4 class="media-heading">Mark Johns</h4>
-            <p class="text-muted">Aug 10, 2014 at 10:20 am</p>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            <div class="media"> <a class="pull-left" href="#"> <img class="media-object" alt="avatar" src="images/avatar-1.jpg"> </a>
-              <div class="media-body">
-                <h4 class="media-heading">John Doe</h4>
-                <p class="text-muted">Aug 10, 2014 at 10:20 am</p>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </div>
-            </div>
+          <g:each in="${comentList}">
+	      <div class="media"> <a class="pull-left" href="#"> <img class="media-object" alt="avatar" src="${resource(dir:"images", file:"avatar-1.jpg")}"> </a>
+	          <div class="media-body">
+	            <h6 class="media-heading">${it.author.displayName}</h6>
+	            <p class="text-muted"><g:formatDate date="${it.published.toDate()}" format="EEE, d MMM yyyy" locale="en"/> at 
+	            <g:formatDate date="${it.published.toDate()}" format="hh:mm a" locale="en"/></p>
+	         	 ${it.content}
+	          
+	          
+	           <g:each in="${it.reply}" var="reply">
+		          <div class="media"> <a class="pull-left" href="#"> <img class="media-object" alt="avatar" src="${resource(dir:"images", file:"avatar-1.jpg")}"> </a>
+	              <div class="media-body">
+		            <h6 class="media-heading">${reply.author.displayName}</h6>
+		           <p class="text-muted"><g:formatDate date="${reply.published.toDate()}" format="EEE, d MMM yyyy" locale="en"/> at 
+		            <g:formatDate date="${reply.published.toDate()}" format="hh:mm a" locale="en"/></p>
+		         	
+		         	 ${reply.content}
+	         	  </div>
+	         	  </div>
+	          </g:each>
+	          </div>
           </div>
-        </div>
-        <div class="media"> <a class="pull-left" href="#"> <img class="media-object" alt="avatar" src="images/avatar-1.jpg"> </a>
-          <div class="media-body">
-            <h4 class="media-heading">James Norton</h4>
-            <p class="text-muted">Aug 10, 2014 at 10:20 am</p>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </div>
-        </div>
+       </g:each>
+      
+        
       </section>
       <section class="post-comment-form">
         <h3 class="comments-head">Add your comment</h3>

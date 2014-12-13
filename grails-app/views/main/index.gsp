@@ -151,7 +151,7 @@
 	          <h4 class="media-heading">${it.title}</h4>
 	          <p>on <g:formatDate date="${it.published.toDate()}" format="EEE, d MMM yyyy" locale="en"/> by <a href="${it.author.url}" class="link-reverse"  target="_blank">${it.author.displayName}</a></p>
 	          <p> ${raw(it.shortContent)}</p>
-	          <a class="btn btn-primary" href="${createLink(controller: 'blog', action: 'show')}" role="button">Read Article →</a> </div>
+	          <a class="btn btn-primary" href="${createLink(controller: 'blog', action: 'show',id:it.postId)}" role="button">Read Article →</a> </div>
 	    </div>
        </g:each>
       <div class="row has-margin-bottom">
