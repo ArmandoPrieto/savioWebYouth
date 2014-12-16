@@ -47,7 +47,8 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-		
+		//Heroku
+		runtime 'postgresql:postgresql:8.4-702.jdbc3'
 		
 		  // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         runtime 'mysql:mysql-connector-java:5.1.29'
@@ -62,6 +63,10 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
+		//Heroku
+		compile ':heroku:1.0.1'
+		compile ':cloud-support:1.0.8'
+		
 		//Joda time
 		compile ":joda-time:1.5"
 		//Grails Rest
