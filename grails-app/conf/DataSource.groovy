@@ -37,6 +37,23 @@ environments {
             url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
     }
+	production {
+		dataSource {
+			dialect = savioWebPage.ImprovedH2Dialect //Solve hibernate4 - mysql problem
+			dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+			//url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+			
+				pooled = true
+				
+				url = "jdbc:mysql://127.2.73.130:3306/savioyouthapp"
+				
+				driverClassName = "com.mysql.jdbc.Driver"
+				username = "adminE2WkTDM"
+				password = "ifiRrKJ5Naa-"
+			
+		}
+	}
+	
    /* production {
         dataSource {https://www.google.com/search?client=ubuntu&channel=fs&q=ERROR+hbm2ddl.SchemaExport&ie=utf-8&oe=utf-8
             dbCreate = "create-drop"
@@ -63,7 +80,7 @@ environments {
             }
         }
     }*/
-	production {
+	/*production {
 		dataSource {
 			dbCreate = "update"
 			driverClassName = "org.postgresql.Driver"
@@ -75,6 +92,6 @@ environments {
 			username = uri.userInfo.split(":")[0]
 			password = uri.userInfo.split(":")[1]
 		}
-	}
+	}*/
 	
 }

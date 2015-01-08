@@ -4,6 +4,7 @@
 <!-- Meta, title, CSS, favicons, etc. -->
  <meta name="layout" content="savioLayout"/>
 
+ <link rel="stylesheet" href="${resource(dir: 'css', file: 'circle.css')}" />
 </head>
 <body>
 
@@ -70,29 +71,38 @@
 <!-- // UPCOMING EVENT --> 
 
 <!--FEATURED BLOCK-->
-<div class="container">
-  <div class="row feature-block">
-    <div class="col-md-4 col-sm-6 has-margin-bottom"> <img class="img-responsive" src="${resource(dir: 'images', file: 'cutmypic.png')}" alt="catholic church">
-      <h5>GUIDED BY THE HOLY SPIRIT</h5>
-      <p>Experience God's Wisdom each day as you are lead by the Holy Spirit. Walk effortlessly into success and happiness and understand the Father's love for you. </p>
-      <p><a href="about.html" role="button">View details →</a></p>
-    </div>
-    <!-- /.col-md-4 -->
-  		 <g:each in="${posts}">
-   		   <div class="col-md-4 col-sm-6 has-margin-bottom"> 
-   		   
-   		   <div style="width:370px;height:200px;overflow:hidden">
-       <img class="img-responsive" src="${it.image}" alt="ministry sermon">
-		
-</div>
-   		    
-		      <h5>${it.title.toUpperCase()}</h5>
-		      <p>${raw(it.shortContent)}</p>
-		      <p><a href="sermons.html" role="button">View details →</a></p>
-		    </div>
-   		</g:each>
-     <!-- /.col-md-4 -->
-     
+<div class=".container-fluid">
+  <div class="row feature-block ch-grid" >
+    
+   
+
+
+<ul class="ch-grid">
+    <li>
+        <div class="ch-item ch-img-1">
+            <div class="ch-info">
+                <h3>Reason</h3>
+                <p> <a href="http://www.sdb.org/en/Education_System/Preventive_System">Preventive System</a></p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="ch-item ch-img-2">
+            <div class="ch-info">
+                <h3>Religion</h3>
+                <p> <a href="http://www.sdb.org/en/Education_System/Preventive_System">Preventive System</a></p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="ch-item ch-img-3">
+            <div class="ch-info">
+                <h3>Love & Kindness</h3>
+                <p> <a href="http://www.sdb.org/en/Education_System/Preventive_System">Preventive System</a></p>
+            </div>
+        </div>
+    </li>
+</ul>
   
    
   </div>
@@ -155,7 +165,7 @@
     <div class="col-md-3">
       <div class="well">
         <div class="section-title">
-          <h4> RECENT SERMONS </h4>
+          <h4> RECOMMENDED VIDEOS</h4>
         </div>
         <a href="#"><img src="${resource(dir: 'images', file: 'thumb-2.jpg')}" class="img-responsive center-block" alt="video thumb"></a>
         <div class="list-group"> <a href="sermons.html" class="list-group-item">

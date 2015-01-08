@@ -47,6 +47,8 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
+		
+		
 		//Heroku
 		runtime 'postgresql:postgresql:8.4-702.jdbc3'
 		
@@ -63,6 +65,8 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
+		//Monitoring
+		compile ":grails-melody:1.54.0"
 		//Heroku
 		compile ':heroku:1.0.1'
 		compile ':cloud-support:1.0.8'
@@ -104,4 +108,6 @@ grails.project.dependency.resolution = {
 		
 		
     }
+
 }
+grails.project.war.file = "target/myapp.war"
