@@ -29,28 +29,38 @@
     <div class="item slide-one active">
       <div class="container">
         <div class="carousel-caption">
-          <h3>Ethumb-1.jpgXPERIENCE GOD'S</h3>
-          <h1>UNCEASING PROVISION</h1>
+          <h3>Images Gallerie</h3>
+          <h1>Camp Savio 2014</h1>
           
-          <p><a class="btn btn-giant btn-primary" href="charity-donation.html" role="button">JOIN US &rarr;</a></p>
+          <p><a class="btn btn-lg btn-primary" href="image-gallery.html" role="button">Browse gallery &rarr;</a></p>
         </div>
       </div>
     </div>
     <div class="item slide-two">
       <div class="container">
         <div class="carousel-caption">
-          <h2>Waves of Grace</h2>
-          <p class="lead">Receive the unceasing wave after wave, after wave, after wave of Grace God has for you.</p>
-          <p><a class="btn btn-lg btn-primary" href="ministry.html" role="button">Learn more &rarr;</a></p>
+          <h2>Don Bosco's Bicentenary</h2>
+          <p class="lead">It is enough that you are young for me to love you.</p>
+          <p><a class="btn btn-lg btn-primary" 
+          href="https://www.youtube.com/watch?v=0i0PlLWdwo4&html5=true" 
+          data-toggle="lightbox"
+          data-title="Don Bosco's Bicentenary" 
+          data-width="1280"
+          role="button">Watch the video &rarr;</a></p>
         </div>
       </div>
     </div>
     <div class="item slide-three">
       <div class="container">
         <div class="carousel-caption">
-          <h2>Tijuana Mission Trip</h2>
+          <h2>Salesian Volunteers Program</h2>
           <p class="lead">For God did not send his Son into the world to condemn the world, but to save the world through him. <em>John 3:17</em></p>
-          <p><a class="btn btn-lg btn-primary" href="image-gallery.html" role="button">Browse gallery &rarr;</a></p>
+          <p><a class="btn btn-lg btn-primary" 
+          href="https://www.youtube.com/watch?v=Q3a3Qa92D_c"
+          data-toggle="lightbox"
+          data-title="Salesian Volunteers Program" 
+          data-width="1280"
+          role="button">Watch the video &rarr;</a></p>
         </div>
       </div>
     </div>
@@ -63,9 +73,9 @@
 <div class="highlight-bg has-margin-bottom">
   <div class="container event-cta">
     <div class="ec-txt"> <span>UPCOMING EVENT</span>
-      <p>"The Law Demands, but Grace Supplies" - Paster J.P.</p>
+      <p>Rock out youth 2015! 20-20-14 St. Jhon Bosco 3:00pm</p>
     </div>
-    <a class="btn btn-lg btn-primary" href="event-single.html" role="button">Program details →</a> </div>
+    <a class="btn btn-lg btn-primary" href="http://www.donboscowest.org/salesianym/rockoutyp" target="_blank" role="button">Program details →</a> </div>
 </div>
 
 <!-- // UPCOMING EVENT --> 
@@ -165,22 +175,48 @@
     <div class="col-md-3">
       <div class="well">
         <div class="section-title">
+          <h4> RECOMMENDED LINKS</h4>
+        </div>
+        <img src="${resource(dir: 'images', file: 'links.jpg')}" class="img-responsive center-block" alt="video thumb">
+        <div class="list-group"> 
+        <a href="http://www.donboscowest.org/" class="list-group-item" target="_blank">
+          <p class="list-group-item-heading">Salesians USA West</p>
+         
+          </a> 
+          <a href="http://www.infoans.org/Index.asp?Lingua=2" class="list-group-item" target="_blank">
+          <p class="list-group-item-heading">Salesian Information Agency</p>
+         
+          </a> 
+          <a href="http://www.sdb.org/en" class="list-group-item" target="_blank">
+          <p class="list-group-item-heading">SDB.org</p>
+        
+          </a> 
+          
+        </div>
+      </div>
+    </div>
+     <!--Latest Sermons-->
+    <div class="col-md-3">
+      <div class="well">
+        <div class="section-title">
           <h4> RECOMMENDED VIDEOS</h4>
         </div>
-        <a href="#"><img src="${resource(dir: 'images', file: 'thumb-2.jpg')}" class="img-responsive center-block" alt="video thumb"></a>
-        <div class="list-group"> <a href="sermons.html" class="list-group-item">
-          <p class="list-group-item-heading">Heavens and the earth</p>
-          <p class="list-group-item-text">24:15 mins</p>
-          </a> <a href="sermons.html" class="list-group-item">
-          <p class="list-group-item-heading">Prayer and petition</p>
-          <p class="list-group-item-text">12:00 mins</p>
-          </a> <a href="sermons.html" class="list-group-item">
-          <p class="list-group-item-heading">Fruit of the Spirit</p>
-          <p class="list-group-item-text">30:25 mins</p>
-          </a> <a href="sermons.html" class="list-group-item">
-          <p class="list-group-item-heading">Do not be afraid; keep on...</p>
-          <p class="list-group-item-text">17:00 mins</p>
-          </a> </div>
+        <img src="${resource(dir: 'images', file: 'video-overlay.png')}" class="img-responsive center-block" alt="video thumb">
+        <div class="list-group"> 
+        <a href="http://www.donboscowest.org/" class="list-group-item" target="_blank">
+          <p class="list-group-item-heading">Salesians USA West</p>
+         
+          </a> 
+          <a href="http://www.infoans.org/Index.asp?Lingua=2" class="list-group-item" target="_blank">
+          <p class="list-group-item-heading">Salesian Information Agency</p>
+         
+          </a> 
+          <a href="http://www.sdb.org/en" class="list-group-item" target="_blank">
+          <p class="list-group-item-heading">SDB.org</p>
+        
+          </a> 
+          
+        </div>
       </div>
     </div>
   </div>
@@ -219,7 +255,7 @@
 
 // END CHARITY DONATION --> 
 
-<!--OUR GALLERY-->
+<!--OUR GALLERY
 <div class="container has-margin-bottom">
   <div class="section-title">
     <h4> OUR CORE TEAM </h4>
@@ -255,6 +291,7 @@
    </div>
   </div>
 </div>
+-->
 <!--// END OUR GALLERY --> 
 
 <!-- BIBLE QUOTES -->
@@ -266,16 +303,14 @@
     <div class="row">
       <div class="col-md-12">
         <div class="owl-carousel2">
+        <g:each in="${quotes}">
           <div class="item">
-            <blockquote class="blockquote-centered"> For God so loved the world that he gave his one and only begotten Son, that who ever believes in him shall not perish but have eternal life. <small>John 3:16 (KJV)</small> </blockquote>
+            <blockquote class="blockquote-centered"> ${it.text} 
+            <small>${it.author}</small> 
+            </blockquote>
           </div>
-          <div class="item">
-            <blockquote class="blockquote-centered"> For if, by the trespass of the one man, death reigned through that one man, how much more will those who receive God's abundant provision of grace!
- <small>Romans 5:17 (NIV)</small> </blockquote>
-          </div>
-          <div class="item">
-            <blockquote class="blockquote-centered">For God did not send his Son into the world to condemn the world, but to save the world through him. <small>John 3:17</small> </blockquote>
-          </div>
+          </g:each> 
+        
         </div>
       </div>
     </div>

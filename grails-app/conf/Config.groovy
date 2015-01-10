@@ -199,6 +199,8 @@ jqueryValidationUi {
 	]	
 }
 
+//Config Savio Web Page
+quotesNumber = 3
 
 file.upload.directory = '/images/uploads'
 fileTmp.upload.directory.tmp = '/images/uploads/tmp'

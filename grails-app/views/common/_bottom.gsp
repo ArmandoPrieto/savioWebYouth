@@ -28,11 +28,11 @@
 <footer>
   <div class="container">
     <div class="row">
-      <div class="col-sm-6 col-md-3">
-        <h5>ABOUT THE CHURCH</h5>
+      <div class="col-sm-6 col-md-6">
+        <h5>ABOUT SAVIO YOUTH MINISTRY</h5>
         <p>For the word of God is living and active. Sharper than any double-edged sword, it penetrates even to dividing soul and spirit, joints and marrow; it judges the thoughts and attitudes.</p>
       </div>
-      <div class="col-sm-6 col-md-3">
+      <!-- <div class="col-sm-6 col-md-3">
         <h5>QUICK LINKS</h5>
         <ul class="footer-links">
           <li><a href="#">Upcoming events</a></li>
@@ -40,7 +40,7 @@
           <li><a href="#">Recent Sermons</a></li>
           <li><a href="#">Contact us</a></li>
         </ul>
-      </div>
+      </div> -->
       <div class="col-sm-6 col-md-3">
         <h5>OUR ADDRESS</h5>
         <p> St. Dominic Savio Church<br>

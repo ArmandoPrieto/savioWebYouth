@@ -7,15 +7,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Our Church is a premium HTML5 Church Website Template with Responsive design. Church Template includes many pages like Bulletin, Programs, events, sermons, ministries, working church contact form etc..">
 <meta name="keywords" content="Church, Website, Template, Bulletin, Programs, Events, Themeforest, Premium, Charity, Non Profit ">
-<meta name="author" content="Surjith SM">
-<title>Church Website Template - Our Church Responsive HTML5</title>
+<meta name="author" content="Armando Prieto">
+<title>Savio Youth Ministry</title>
 
  <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" />
 <!-- Church Template CSS -->
  <link rel="stylesheet" href="${resource(dir: 'css', file: 'church.css')}" />
  <link rel="stylesheet" href="${resource(dir: 'css', file: 'fancybox.css')}" />
 
- 
+  <link rel="stylesheet" href="${resource(dir: 'css', file: 'ekko-lightbox.css')}" />
  
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -53,6 +53,8 @@
 <script src="${resource(dir: 'js', file: 'fancybox.js')}"></script>
 
 <!--============== EVENT CAROUSEL =================--> 
+
+<script src="${resource(dir: 'js', file: 'ekko-lightbox.js')}"></script>
 
 <script>
 $('.owl-carousel').owlCarousel({
@@ -172,6 +174,9 @@ $(document).ready(function() {
 
 });
 </script>
-      
+<!--============== Boostrap Light Box =================--> 
+<script>      
+$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) { event.preventDefault(); $(this).ekkoLightbox(); });       
+</script>      
    </body>
 </html>
