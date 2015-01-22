@@ -17,7 +17,7 @@
     	 <ul class="dropdown-menu dropdown-menu-left" role="menu">
     	<g:each in="${it.subMenu}" var="sub">
     	
-    	   <li><a href="#">${sub.title}</a></li>
+    	   <li><a href="${it.url}">${sub.title}</a></li>
     	
     	</g:each>
     	 </ul>
@@ -25,7 +25,7 @@
     </li>
    </g:if>
    <g:else>
-    <li class="${it.active?'active':''}"><g:link> ${it.title}</g:link>
+    <li class="${it.active?'active':''}"><a href="${it.url}"> ${it.title}</a>
      </li>
    </g:else>
   

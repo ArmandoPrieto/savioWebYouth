@@ -7,7 +7,7 @@
  <link rel="stylesheet" href="${resource(dir: 'css', file: 'circle.css')}" />
 </head>
 <body>
-
+<div id="top"></div>
 <g:render template="/common/menu" model="${menus}"/>
 
 
@@ -70,7 +70,7 @@
 
 <!--UPCOMING EVENT-->
 
-<div class="highlight-bg has-margin-bottom">
+<div id="lineMessage" class="highlight-bg has-margin-bottom">
   <div class="container event-cta">
     <div class="ec-txt"> <span>UPCOMING EVENT</span>
       <p>Rock out youth 2015! 20-20-14 St. Jhon Bosco 3:00pm</p>
@@ -81,7 +81,7 @@
 <!-- // UPCOMING EVENT --> 
 
 <!--FEATURED BLOCK-->
-<div class=".container-fluid">
+<div id="ourMethod" class=".container-fluid">
   <div class="row feature-block ch-grid" >
     
    
@@ -120,7 +120,7 @@
 <!-- // END FEATURED BLOCK--> 
 
 <!--EVENT LISTS-->
-<div class="highlight-bg has-margin-bottom">
+<div id="events" class="highlight-bg has-margin-bottom">
   <div class="container event-list">
     <div class="section-title">
       <h4> PROGRAMS &amp; EVENTS </h4>
@@ -148,7 +148,9 @@
 <!-- // END EVENT LISTS --> 
 
 <!-- BLOG LIST / LATEST SERMONS -->
-<div class="container has-margin-bottom">
+
+<div  id="bulletin" class="container has-margin-bottom">
+
   <div class="row">
     <div class="col-md-9 has-margin-bottom">
       <div class="section-title left-align-desktop">
@@ -172,7 +174,7 @@
     <!--// col md 9--> 
     
     <!--Latest Sermons-->
-    <div class="col-md-3">
+    <div id="recommendedLinks"class="col-md-3">
       <div class="well">
         <div class="section-title">
           <h4> RECOMMENDED LINKS</h4>
@@ -196,7 +198,7 @@
       </div>
     </div>
      <!--Latest Sermons-->
-    <div class="col-md-3">
+    <div id="recommendedVideo" class="col-md-3">
       <div class="well">
         <div class="section-title">
           <h4> RECOMMENDED VIDEOS</h4>
@@ -319,7 +321,7 @@
 <!-- // END BIBLE QUOTES --> 
 
 <!-- OUR MINISTRIES -->
-<div class="container">
+<div id="ministries" class="container">
   <div class="section-title">
     <h4> OUR MINISTRIES </h4>
   </div>

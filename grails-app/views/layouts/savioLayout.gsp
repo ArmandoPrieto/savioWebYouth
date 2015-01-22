@@ -122,7 +122,21 @@ $('.owl-carousel3').owlCarousel({
 
 <script>
 $(document).ready(function() {
- $('.fancybox').fancybox();			
+ $('.fancybox').fancybox();		
+
+ /*Menu smooth slide*/
+ $('a[href^="#"]').on('click',function (e) {
+	    e.preventDefault();
+
+	    var target = this.hash;
+	    var $target = $(target);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top -90
+	    }, 'slow', 'swing');
+	});
+
+ 	
 });			
 </script> 
 
@@ -145,7 +159,7 @@ function getCurrentScroll() {
     return window.pageYOffset || document.documentElement.scrollTop;
     }
 });
-
+	
 </script> 
 
 <!--============== SUBSCRIBE FORM =================--> 

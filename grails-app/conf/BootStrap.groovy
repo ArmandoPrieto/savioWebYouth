@@ -7,10 +7,10 @@ class BootStrap {
     
 		environments {
 				development{
-				def a = new Menu(title:"Home", url:"",  active:true, subMenu: null).save(flush: true)
-				def b = new Menu(title:"About", url:"",  active:false, subMenu: null).save(flush: true)
+				def a = new Menu(title:"Home", url:"#top",  active:true, subMenu: null).save(flush: true)
+				def b = new Menu(title:"Bulletin", url:"#bulletin",  active:false, subMenu: null).save(flush: true)
 				//def c = new Menu(title:"Home1", url:"",  active:false, subMenu: null).save(flush: true)
-				def d = new Menu(title:"Home2", url:"",  active:false, subMenu: [a,b]).save(flush: true)
+				def d = new Menu(title:"Ministries", url:"#ministries",  active:false, subMenu: [a,b]).save(flush: true)
 			
 				
 				new Quote(text: "There can be no virtue without obedience", author:"Don Bosco").save(flush:true)
