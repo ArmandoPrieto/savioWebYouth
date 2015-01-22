@@ -201,7 +201,8 @@ jqueryValidationUi {
 
 //Config Savio Web Page
 quotesNumber = 3
-
+blogId = "3416050442440464469"
+appId = "AIzaSyDeoXli9PdQv2sOFjfAPbhKeMmKf9CG3wA"
 file.upload.directory = '/images/uploads'
 fileTmp.upload.directory.tmp = '/images/uploads/tmp'
 

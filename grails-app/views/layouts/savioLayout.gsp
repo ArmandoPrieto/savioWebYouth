@@ -24,7 +24,7 @@
 <![endif]-->
 
 <!-- Favicons -->
-<link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.png')}" />
+<link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" />
 
 <!-- Custom Google Font : Montserrat and Droid Serif -->
 

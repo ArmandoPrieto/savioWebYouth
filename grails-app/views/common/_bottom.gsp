@@ -52,7 +52,7 @@
       </div>
       <div class="col-sm-6 col-md-3">
         <h5>CONNECT</h5>
-        <div class="social-icons"><a href="#"><img src="${resource(dir: 'images', file: 'fb-icon.png')}" alt="social"></a> <a href="#"><img src="${resource(dir: 'images', file: 'in-icon.png')}" alt="social"></a> <a href="#"><img src="${resource(dir: 'images', file: 'tw-icon.png')}" alt="social"></a></div>
+        <div class="social-icons"><a href="https://www.facebook.com/savioym" target="_blank"><img src="${resource(dir: 'images', file: 'fb-icon.png')}" alt="social"></a> <a href="http://instagram.com/savioym/" target="_blank"><img src="${resource(dir: 'images', file: 'instg-icon.png')}" alt="social" style="width:43px;height:auto;"></a> <a href="https://twitter.com/SavioYM" target="_blank"><img src="${resource(dir: 'images', file: 'tw-icon.png')}" alt="social"></a></div>
       </div>
     </div>
   </div>

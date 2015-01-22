@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 
 @Transactional
 class GoogleBloggerReaderService {
+	
+	def grailsApplication
 
     def serviceMethod() {
 
@@ -52,8 +54,8 @@ class GoogleBloggerReaderService {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date parseDate = null
 		RestBuilder rest = new RestBuilder()
-		String service = "https://www.googleapis.com/blogger/v3/blogs/7012492291395427842/posts?key={key}&fetchImages={fetchImages}"
-		def urlVariables = [key:"AIzaSyDeoXli9PdQv2sOFjfAPbhKeMmKf9CG3wA",fetchImages:'true']
+		String service = "https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts?key={key}&fetchImages={fetchImages}"
+		def urlVariables = [blogId: grailsApplication.config.blogId, key: grailsApplication.config.appId,fetchImages:'true']
 		try{
 		def resp = rest.get(service,urlVariables)
 		
@@ -113,8 +115,8 @@ class GoogleBloggerReaderService {
 	
 	Post getPost(String postId){
 		
-		String service = "https://www.googleapis.com/blogger/v3/blogs/7012492291395427842/posts/"+postId+"?key={key}"
-		def urlVariables = [key:"AIzaSyDeoXli9PdQv2sOFjfAPbhKeMmKf9CG3wA"]
+		String service = "https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}?key={key}"
+		def urlVariables = [blogId: grailsApplication.config.blogId,postId: postId,key: grailsApplication.config.appId]
 		RestBuilder rest = new RestBuilder()
 		def resp = rest.get(service,urlVariables)
 		DateTime published = null
@@ -149,8 +151,8 @@ class GoogleBloggerReaderService {
 	
 	def getComentList(String postId){
 		
-		String service = "https://www.googleapis.com/blogger/v3/blogs/7012492291395427842/posts/"+postId+"/comments?key={key}"
-		def urlVariables = [key:"AIzaSyDeoXli9PdQv2sOFjfAPbhKeMmKf9CG3wA"]
+		String service = "https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}/comments?key={key}"
+		def urlVariables = [blogId: grailsApplication.config.blogId,postId: postId,key: grailsApplication.config.appId]
 		RestBuilder rest = new RestBuilder()
 		def resp = rest.get(service,urlVariables)
 		DateTime published = null

@@ -3,20 +3,27 @@ package saviowebpage
 
 import grails.converters.*
 import grails.plugins.rest.client.RestBuilder
+
 import org.springframework.util.LinkedMultiValueMap
 import org.springframework.util.MultiValueMap
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import org.joda.time.LocalDateTime
-import groovy.json.*
-import java.text.SimpleDateFormat
-import org.springframework.context.i18n.LocaleContextHolder as LCH
-import savioWebPage.Event
 
+import groovy.json.*
+
+import java.text.SimpleDateFormat
+
+import org.springframework.context.i18n.LocaleContextHolder as LCH
+
+import savioWebPage.Event
 import grails.transaction.Transactional
 
 @Transactional
 class GoogleCalendarReaderService {
+	
+	String calendarId = "2nji7tgrgmv0240t599s6dqvs8@group.calendar.google.com"
+	String appId = "AIzaSyDeoXli9PdQv2sOFjfAPbhKeMmKf9CG3wA"
 
     def serviceMethod() {
 
@@ -25,8 +32,8 @@ class GoogleCalendarReaderService {
 	def getEvents(){
 		
 		RestBuilder rest = new RestBuilder()
-		String service = "https://www.googleapis.com/calendar/v3/calendars/prieto.arm@gmail.com/events?key={key}"
-		def urlVariables = [key:"AIzaSyDeoXli9PdQv2sOFjfAPbhKeMmKf9CG3wA"]
+		String service = "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events?key={key}"
+		def urlVariables = [calendarId: calendarId, key:appId]
 		def event = [];
 		try{
 			def resp = rest.get(service,urlVariables)
