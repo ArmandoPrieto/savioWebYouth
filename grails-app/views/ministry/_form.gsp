@@ -1,30 +1,34 @@
 <%@ page import="saviowebpage.Ministry" %>
 
 
-<div class="fieldcontain ${hasErrors(bean: ministryInstance, field: 'name', 'error')} required">
-	<label for="name">
+<div class="form-group fieldcontain ${hasErrors(bean: ministryInstance, field: 'name', 'error')} required">
+	<label class="col-sm-2 col-sm-2 control-label" for="name">
 		<g:message code="ministry.name.label" default="Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="name" required="" value="${ministryInstance?.name}"/>
-
+	<div class="col-sm-10">
+	<g:textField class="form-control" name="name" required="" value="${ministryInstance?.name}"/>
+	</div>
 </div>
-<div class="fieldcontain ${hasErrors(bean: ministryInstance, field: 'subTitle', 'error')} required">
-	<label for="subTitle">
+
+<div class="form-group  fieldcontain ${hasErrors(bean: ministryInstance, field: 'subTitle', 'error')} required">
+	<label class="col-sm-2 col-sm-2 control-label" for="subTitle">
 		<g:message code="ministry.subTitle.label" default="Sub Title" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="subTitle" maxlength="200" required="" value="${ministryInstance?.subTitle}"/>
-
+	<div class="col-sm-10">
+	<g:textField  class="form-control" name="subTitle" maxlength="200" required="" value="${ministryInstance?.subTitle}"/>
+	</div>
 </div>
-<div class="fieldcontain ${hasErrors(bean: ministryInstance, field: 'imageId', 'error')} required">
+<div class="form-group fieldcontain ${hasErrors(bean: ministryInstance, field: 'imageId', 'error')} required">
 	<%-- <label for="imageId">
 		<g:message code="ministry.imageId.label" default="Image Url" />
 		<span class="required-indicator">*</span>
 	</label>
 	--%>
-	<g:field id="myOutputId" type="text" name="imageId" required="" value="${ministryInstance?.imageId}" style="visibility:hidden"/>
-
+	<div class="col-sm-10">
+	<g:field  class="form-control" id="myOutputId" type="text" name="imageId" required="" value="${ministryInstance?.imageId}" style="visibility:hidden"/>
+	</div>
 </div>
 
 <%--
@@ -47,18 +51,19 @@
 </div>
 --%>
 
-<div class="fieldcontain ${hasErrors(bean: ministryInstance, field: 'description', 'error')} required">
-	<label for="description">
+<div class="form-group fieldcontain ${hasErrors(bean: ministryInstance, field: 'description', 'error')} required">
+	<label class="col-sm-2 col-sm-2 control-label" for="description">
 		<g:message code="ministry.description.label" default="Description" />
 		<span class="required-indicator">*</span>
 	</label>
+	<div class="col-sm-10">
 	 <section id="editor">
 	 
-	 <textarea id='edit' name="description" style="margin-top: 30px;" >
+	 <textarea  class="form-control" id='edit' name="description" style="margin-top: 30px;" >
 	 ${ministryInstance?.description}
       </textarea>
       </section>
-      
+     </div> 
 	
 </div>
 

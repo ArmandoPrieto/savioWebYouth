@@ -29,8 +29,8 @@
     <div class="item slide-one active">
       <div class="container">
         <div class="carousel-caption">
-          <h3>Images Gallerie</h3>
-          <h1>Camp Savio 2014</h1>
+          <h3>Be ready! #iAmSalesian</h3>
+          <h1>Camp Savio 2015</h1>
           
           <p><a class="btn btn-lg btn-primary" href="image-gallery.html" role="button">Browse gallery &rarr;</a></p>
         </div>

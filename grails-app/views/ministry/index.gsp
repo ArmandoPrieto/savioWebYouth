@@ -3,24 +3,33 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="adminSavioLayout">
 		<g:set var="entityName" value="${message(code: 'ministry.label', default: 'Ministry')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-ministry" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
+	
+ 
+          	 <div class="content-panel">
+          	 
+	
+		<div class="showback" role="navigation">
+		<h4><i class="fa fa-angle-right"></i> Actions</h4>
+			<a class="btn btn-theme" href="${createLink(uri: '/')}"><i class="fa fa-cog"></i> <g:message code="default.home.label"/></a>
+			<g:link class="create" action="create" class="btn btn-theme02"><i class="fa fa-check"></i> <g:message code="default.new.label" args="[entityName]" /></g:link>
 		</div>
+		
 		<div id="list-ministry" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+			
+                      <h4><i class="fa fa-angle-right"></i> Responsive Table</h4>
+                          <section id="unseen">
+                            <table class="table table-bordered table-striped table-condensed">
+			
+			
 			<thead>
 					<tr>
 					
@@ -54,9 +63,16 @@
 				</g:each>
 				</tbody>
 			</table>
+			  </section>
+				
+                   
+                        
 			<div class="pagination">
 				<g:paginate total="${ministryInstanceCount ?: 0}" />
 			</div>
+			 </div>
 		</div>
+		
+		
 	</body>
 </html>
