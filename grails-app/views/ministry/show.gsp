@@ -22,7 +22,7 @@
 
 <div class="container has-margin-bottom">
   <div class="row">
-    <div class="col-md-9 has-margin-bottom"> <img src="${createLink(controller: 'image', action: 'picture',id: ministryInstance.id)}" class="img-responsive has-margin-xs-bottom" alt="ministry">
+    <div class="col-md-9 has-margin-bottom"> <img src="${createLink(controller: 'image', action: 'picture',id: ministryInstance.imageId)}" class="img-responsive has-margin-xs-bottom" alt="ministry">
       <p>${raw(ministryInstance.description)}</p>
     </div>
     <!--// col md 9--> 
