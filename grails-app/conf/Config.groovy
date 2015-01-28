@@ -208,4 +208,27 @@ fileTmp.upload.directory.tmp = '/images/uploads/tmp'
 
 //grails.gorm.autoFlush = true
 //grails.gorm.failOnError=true
+grails.plugin.springsecurity.rejectIfNoRule = true
+grails.plugin.springsecurity.fii.rejectPublicInvocations = false
+grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
 
+// Added by the Spring Security Core plugin:
+i
+
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.security.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.security.UserRole'
+grails.plugin.springsecurity.authority.className = 'com.security.Role'
+grails.plugin.springsecurity.interceptUrlMap = [
+	'/':                  ['permitAll'],
+	'/index':             ['permitAll'],
+	'/index.gsp':         ['permitAll'],
+	'/assets/**':         ['permitAll'],
+	'/**/js/**':          ['permitAll'],
+	'/**/css/**':         ['permitAll'],
+	'/**/images/**':      ['permitAll'],
+	'/**/favicon.ico':    ['permitAll'],
+	'/login/**':          ['permitAll'],
+	'/logout/**':         ['permitAll'],
+	'/administration/**': ['ROLE_ADMIN'],
+	'/finance/**':        ['ROLE_FINANCE', 'isFullyAuthenticated()'],
+ ]

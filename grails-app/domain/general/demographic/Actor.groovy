@@ -1,5 +1,5 @@
 package general.demographic
-
+import com.security.Role
 class Actor extends Party {
 	
 	

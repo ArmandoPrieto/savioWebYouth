@@ -1,12 +1,30 @@
 import administration.Menu
+import com.security.Role
+import com.security.User
+import com.security.UserRole
 import saviowebpage.Quote
 
+
+
 class BootStrap {
+transient springSecurityService
 
     def init = { servletContext ->
     
 		environments {
 				development{
+					
+				//ROLES
+				def userRole = Role.findByAuthority('ROLE_USER') ?: new Role(authority: 'ROLE_USER').save(failOnError: true)
+				def adminRole = Role.findByAuthority('ROLE_ADMIN') ?: new Role(authority: 'ROLE_ADMIN').save(failOnError: true)
+				def moderatorRole = Role.findByAuthority('ROLE_MODERATOR') ?: new Role(authority: 'ROLE_MODERATOR').save(failOnError: true)
+				
+				def adminUser = new User(username: 'admin',
+									 password: 'admin',
+									 enabled: true)
+				adminUser.save(failOnError: true)
+				UserRole.create(adminUser,adminRole, true)	
+				
 				def a = new Menu(title:"Home", url:"#top",  active:true, subMenu: null).save(flush: true)
 				def b = new Menu(title:"Bulletin", url:"#bulletin",  active:false, subMenu: null).save(flush: true)
 				//def c = new Menu(title:"Home1", url:"",  active:false, subMenu: null).save(flush: true)

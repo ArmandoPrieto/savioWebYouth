@@ -65,6 +65,8 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
+		//Spring Security
+		compile ":spring-security-core:2.0-RC4"
 		//Monitoring
 		compile ":grails-melody:1.54.0"
 		//Heroku
