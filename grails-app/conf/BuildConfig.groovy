@@ -47,6 +47,8 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
+		//Google API Blogger
+		//compile 'com.google.apis:google-api-services-blogger:v3-rev46-1.19.1'
 		
 		
 		//Heroku

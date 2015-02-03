@@ -124,6 +124,18 @@ $('.owl-carousel3').owlCarousel({
 $(document).ready(function() {
  $('.fancybox').fancybox();		
 
+ /*Menu smooth slide in case of fragment*/
+ if ("${fragment}") {
+	
+	
+	var target = "#${fragment}";
+	 var $target = $(target);
+    
+    	 $('html, body').stop().animate({
+ 	        'scrollTop': $target.offset().top -90
+ 	    }, 'fast', 'swing');
+ }
+
  /*Menu smooth slide*/
  $('a[href^="#"]').on('click',function (e) {
 	    e.preventDefault();

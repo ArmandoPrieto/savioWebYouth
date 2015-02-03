@@ -208,7 +208,7 @@ fileTmp.upload.directory.tmp = '/images/uploads/tmp'
 
 //grails.gorm.autoFlush = true
 //grails.gorm.failOnError=true
-grails.plugin.springsecurity.rejectIfNoRule = true
+grails.plugin.springsecurity.rejectIfNoRule = false
 grails.plugin.springsecurity.fii.rejectPublicInvocations = false
 grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
 
@@ -230,6 +230,6 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	'/**/favicon.ico':    ['permitAll'],
 	'/login/**':          ['permitAll'],
 	'/logout/**':         ['permitAll'],
-	'/administration/**': ['ROLE_ADMIN'],
-	'/finance/**':        ['ROLE_FINANCE', 'isFullyAuthenticated()'],
+	'/administration/**': ['ROLE_ADMIN']
+	
  ]

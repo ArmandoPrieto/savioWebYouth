@@ -22,7 +22,8 @@ class MainController {
 			 posts: postList,
 			 ministries: Ministry.list(max: 6),
 			 newsletterInstance: new Newsletter(),
-			 quotes: quoteList])
+			 quotes: quoteList,
+			 fragment: params.fragment.toString()])
 		
 		
 	}

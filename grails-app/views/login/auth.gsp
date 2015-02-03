@@ -33,15 +33,17 @@
 
 	  <div id="login-page">
 	  	<div class="container">
-		  	<div class='fheader'><g:message code="springSecurity.login.header"/></div>
-	
-			<g:if test='${flash.message}'>
-				<div class='login_message'>${flash.message}</div>
-			</g:if>
+		  	
 	  	
 		      <form class="form-login" action='${postUrl}' method='POST' id='loginForm' autocomplete='off'>
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <div class="login-wrap">
+		        
+	
+					<g:if test='${flash.message}'>
+						<div class='login_message'>${flash.message}</div>
+					</g:if>
+		        
 		            <input name='j_username' id='username' type="text" class="form-control" placeholder="${message(code:"springSecurity.login.username.label")}" autofocus>
 		            <br>
 		            <input name='j_password' id='password' type="password" class="form-control" placeholder="${message(code:"springSecurity.login.password.label")}">
@@ -56,8 +58,9 @@
 					<label for='remember_me'><g:message code="springSecurity.login.remember.me.label"/></label>
 					</p>	
 		            <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> ${message(code: "springSecurity.login.button")}</button>
+		            <%--  
 		            <hr>
-		            
+		       
 		            <div class="login-social-link centered">
 		            <p>or you can sign in via your social network</p>
 		                <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
@@ -69,7 +72,7 @@
 		                    Create an account
 		                </a>
 		            </div>
-		
+					--%>
 		        </div>
 		
 		          <!-- Modal -->

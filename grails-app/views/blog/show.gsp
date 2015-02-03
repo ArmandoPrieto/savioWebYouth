@@ -9,59 +9,8 @@
 
 </head>
 <body>
-<!-- Navigation Bar Starts -->
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="index.html"> <img src="images/church-logo.png" alt="church logo" class="img-responsive"></a> </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">MINISTRY <span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-menu-left" role="menu">
-            <li><a href="ministry.html">Childrens Ministry</a></li>
-            <li><a href="ministry.html">Students Ministry</a></li>
-            <li><a href="ministry.html">Groups</a></li>
-          </ul>
-        </li>
-        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">SERMONS <span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-menu-left" role="menu">
-            <li><a href="sermons.html">Christ-Occupied</a></li>
-            <li><a href="sermons.html">God's Love</a></li>
-            <li><a href="sermons.html">Faithfulness</a></li>
-            <li><a href="sermons.html">Praise Him</a></li>
-          </ul>
-        </li>
-        <li class="dropdown active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-menu-left" role="menu">
-            <li><a href="image-gallery.html">Image Gallery</a></li>
-            <li><a href="video-gallery.html">Video Gallery</a></li>
-            <li><a href="blog.html">Blog list</a></li>
-            <li><a href="blog-single.html">Blog Single</a></li>
-            <li><a href="events-programs.html">Events &amp; Programs</a></li>
-            <li><a href="event-single.html">Event Single</a></li>
-            <li><a href="event-calendar.html">Event Calendar</a></li>
-            <li><a href="charity-donation.html">Charity &amp; Donations</a></li>
-            <li class="divider"></li>
-            <li class="dropdown-header">OTHER PAGES</li>
-            <li><a href="prayers.html">Prayers</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="shortcodes.html">Shortcodes</a></li>
-            <li><a href="full-width.html">Full Width</a></li>
-            <li><a href="left-sidebar.html">Left Sidebar</a></li>
-            <li><a href="http://themeforest.net/user/surjithctly/portfolio">Buy this Template</a></li>
-          </ul>
-        </li>
-        <li><a href="contact.html">CONTACT</a></li>
-      </ul>
-    </div>
-    <!--/.nav-collapse --> 
-    
-  </div>
-</div>
-<!--// Navbar Ends--> 
+
+ <g:render template="/common/goBack" model="['fragment':'bulletin']"/>
 
 <!--SUBPAGE HEAD-->
 
@@ -81,11 +30,11 @@
        ${raw(postInstance.content)}
       </article>
       <div class="tag-cloud has-margin-bottom"> 
-      	<h4>Labels</h4>
+      	<g:if test="${postInstance.labels}"> <h4>Labels</h4></g:if>
       	<g:each in="${postInstance.labels}"><a href="#">${it}</a></g:each>
       </div>
       <section class="comments-block">
-        <h3 class="comments-head">Comments</h3>
+       <g:if test="${comentList}"> <h3 class="comments-head">Comments</h3></g:if>
           <g:each in="${comentList}">
 	      <div class="media"> <a class="pull-left" href="#"> <img class="media-object" alt="avatar" src="${it.author.imageUrl}"> </a>
 	          <div class="media-body">
@@ -112,6 +61,7 @@
       
         
       </section>
+      <%-- 
       <section class="post-comment-form">
         <h3 class="comments-head">Add your comment</h3>
         <form class="form" role="form">
@@ -138,6 +88,7 @@
           </div>
         </form>
       </section>
+      --%>
     </div>
     <!--// col md 9--> 
     

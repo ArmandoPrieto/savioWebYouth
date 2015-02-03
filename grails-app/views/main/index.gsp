@@ -68,8 +68,9 @@
   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> </div>
 <!-- // Banner Slider --> 
 
-<!--UPCOMING EVENT-->
 
+<!--UPCOMING EVENT-->
+<%-- 
 <div id="lineMessage" class="highlight-bg has-margin-bottom">
   <div class="container event-cta">
     <div class="ec-txt"> <span>UPCOMING EVENT</span>
@@ -77,9 +78,10 @@
     </div>
     <a class="btn btn-lg btn-primary" href="http://www.donboscowest.org/salesianym/rockoutyp" target="_blank" role="button">Program details →</a> </div>
 </div>
-
+--%>
 <!-- // UPCOMING EVENT --> 
 
+ 
 <!--FEATURED BLOCK-->
 <div id="ourMethod" class=".container-fluid">
   <div class="row feature-block ch-grid" >
@@ -197,6 +199,7 @@
         </div>
       </div>
     </div>
+    <%--
      <!--Latest Sermons-->
     <div id="recommendedVideo" class="col-md-3">
       <div class="well">
@@ -221,6 +224,7 @@
         </div>
       </div>
     </div>
+    --%>
   </div>
 </div><g:render template="/common/menu" />
 <!-- END BLOG LIST / LATEST SERMONS --> 

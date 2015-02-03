@@ -1,4 +1,5 @@
 
+<%-- 
 <!-- SUBSCRIBE -->
 <div class="highlight-bg">
   <div class="container">
@@ -23,6 +24,7 @@
   </div>
 </div>
 <!-- END SUBSCRIBE --> 
+--%>
 
 <!-- FOOTER -->
 <footer>
