@@ -11,15 +11,33 @@ class MinistryController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
+    
+	def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Ministry.list(params), model:[ministryInstanceCount: Ministry.count()]
     }
 
     def show(Ministry ministryInstance) {
-		
-		respond ministryInstance, model:[ministries: Ministry.list(max: 3)] 
+		if(ministryInstance.getIsPublished()){
+			def c = Ministry.createCriteria()
+			def results = c.list {
+				eq("isPublished", true)
+				maxResults(3)
+			}
+			respond ministryInstance, model:[ministries: results]
+		}else{
+		redirect(controller:"main",action:"main_page")
+		}
+		 
     }
+	def showPreview(Ministry ministryInstance) {
+		def c = Ministry.createCriteria()
+		def results = c.list {
+			eq("isPublished", true)
+			maxResults(3)
+		}
+		render(view: 'show', model:[ministryInstance: ministryInstance, ministries: results])
+	}
 	def show1(Ministry ministryInstance) {
 		
 		respond ministryInstance, model:[ministries: Ministry.list(max: 3)]
@@ -113,4 +131,19 @@ class MinistryController {
             '*'{ render status: NOT_FOUND }
         }
     }
+	@Transactional
+	def unpublish(){
+		Ministry m = Ministry.get(params.id)
+		m.setIsPublished(false)
+		m.save(flush:true)
+		redirect(action:'show1',id: m.id)		
+	}
+	@Transactional
+	def publish(){
+		Ministry m = Ministry.get(params.id)
+		m.setIsPublished(true)
+		m.save(flush:true)
+		redirect(action:'show1',id: m.id)		
+	
+	}
 }

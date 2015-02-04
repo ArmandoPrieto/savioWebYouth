@@ -9,6 +9,7 @@ class Ministry extends Group{
 	String description
 	String subTitle
 	String imageId
+	boolean isPublished
 	
 	public Ministry(){
 		
@@ -18,6 +19,7 @@ class Ministry extends Group{
 		this.setRoles(null)
 		this.setIdentities(null)
 		this.setContacts(null)
+		this.setIsPublished(false)
 		
 		
 		

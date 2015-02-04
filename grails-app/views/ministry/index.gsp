@@ -35,7 +35,6 @@
 					
 						<%--<g:sortableColumn property="imageId" title="${message(code: 'ministry.imageId.label', default: 'Image Url')}" /> --%>
 					
-						<th> Actions </th>
 						
 						<%--<g:sortableColumn property="description" title="${message(code: 'ministry.description.label', default: 'Description')}" />--%>
 					
@@ -43,7 +42,10 @@
 						<g:sortableColumn property="subTitle" title="${message(code: 'ministry.subTitle.label', default: 'Short Description')}" />
 					
 						<g:sortableColumn property="type" title="${message(code: 'ministry.type.label', default: 'Type')}" />
+						<g:sortableColumn property="isPublished" title="${message(code: 'ministry.isPublished.label', default: 'Published')}" />
 					
+					<th> Actions </th>
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -51,7 +53,6 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<%--<td><g:link action="show1" id="${ministryInstance.id}">${fieldValue(bean: ministryInstance, field: "imageId")}</g:link></td> --%>
-						<td><g:link action="show1" id="${ministryInstance.id}">Show detail</g:link></td>
 						
 					
 						<%--<td>${fieldValue(bean: ministryInstance, field: "description")}</td>--%>
@@ -60,7 +61,10 @@
 						<td>${fieldValue(bean: ministryInstance, field: "subTitle")}</td>
 					
 						<td>${fieldValue(bean: ministryInstance, field: "type")}</td>
-					
+						<td>${fieldValue(bean: ministryInstance, field: "isPublished")==true?'Yes':'No'}</td>
+							
+			<td><g:link class="btn btn-theme" action="show1" id="${ministryInstance.id}">Show detail</g:link></td>
+						
 					</tr>
 				</g:each>
 				</tbody>

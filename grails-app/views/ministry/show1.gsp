@@ -25,26 +25,81 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<ol class="property-list ministry">
-			
-				<g:if test="${ministryInstance?.imageId}">
-				<li class="fieldcontain">
-					<span id="imageUrl-label" class="property-label"><g:message code="ministry.imageUrl.label" default="Image Id" /></span>
+		
+				<div class="row mt">
+			  		<div class="col-lg-12">
+                      <div class="content-panel">
+                     
+                          <section id="unseen">
+                            <table class="table table-bordered table-striped table-condensed">
+                              <thead>
+                              <tr>
+                                  <th><g:message code="ministry.name.label" default="Name" /></th>
+                                  <th><g:message code="ministry.subTitle.label" default="Short Description" /></th>
+                                  <th><g:message code="ministry.description.label" default="Description" /></th>
+                                  <th><g:message code="ministry.type.label" default="Type" /></th>
+                                  
+                                  <th></th>
+                                 
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                 <g:if test="${ministryInstance?.name}">
+				<td>
+						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${ministryInstance}" field="name"/></span>
 					
-						<span class="property-value" aria-labelledby="imageUrl-label"><g:fieldValue bean="${ministryInstance}" field="imageId"/></span>
-					
-				</li>
+				</td>
 				</g:if>
-			
 				<g:if test="${ministryInstance?.subTitle}">
-				<li class="fieldcontain">
-					<span id="subTitle-label" class="property-label"><g:message code="ministry.subTitle.label" default="Short Description" /></span>
-					
+				<td>
 						<span class="property-value" aria-labelledby="subTitle-label"><g:fieldValue bean="${ministryInstance}" field="subTitle"/></span>
 					
-				</li>
+				</td>
 				</g:if>
-			
+				
+				<g:if test="${ministryInstance?.description}">
+				<td>
+							<span class="property-value" aria-labelledby="description-label">${raw(ministryInstance.description)}</span>
+					
+				</td>
+				</g:if>
+				
+				<g:if test="${ministryInstance?.type}">
+				<td>
+					<span class="property-value" aria-labelledby="type-label"><g:fieldValue bean="${ministryInstance}" field="type"/></span>
+					
+				</td>
+				</g:if>
+				
+				<td>
+					<g:if test="${ministryInstance?.isPublished}">
+					<g:link class="btn btn-theme" controller="ministry" action="show" id="${ministryInstance.id}" resource="${ministryInstance}" target="_blank">Show</g:link>
+				</g:if>
+				<g:else>
+					<g:link class="btn btn-theme" controller="ministry" action="showPreview" id="${ministryInstance.id}" resource="${ministryInstance}" target="_blank">Preview</g:link>
+				
+				</g:else>
+				
+				<g:if test="${ministryInstance?.isPublished}">
+					<g:link class="btn btn-theme03" controller="ministry" action="unpublish" id="${ministryInstance.id}" resource="${ministryInstance}">Unpublish</g:link>
+				</g:if>
+				<g:else>
+					<g:link class="btn btn-theme03" controller="ministry" action="publish" id="${ministryInstance.id}" resource="${ministryInstance}">Publish</g:link>
+				</g:else>
+				</td>
+                                  
+                              </tr>
+                             
+                              </tbody>
+                          </table>
+                          </section>
+                  </div><!-- /content-panel -->
+               </div><!-- /col-lg-4 -->			
+		  	</div><!-- /row -->
+		  		
+			<%-- 
+				<ol class="property-list ministry">
 				<g:if test="${ministryInstance?.contacts}">
 				<li class="fieldcontain">
 					<span id="contacts-label" class="property-label"><g:message code="ministry.contacts.label" default="Contacts" /></span>
@@ -56,14 +111,7 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${ministryInstance?.description}">
-				<li class="fieldcontain">
-					<span id="description-label" class="property-label"><g:message code="ministry.description.label" default="Description" /></span>
-					
-						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${ministryInstance}" field="description"/></span>
-					
-				</li>
-				</g:if>
+				
 			
 				<g:if test="${ministryInstance?.identities}">
 				<li class="fieldcontain">
@@ -87,14 +135,7 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${ministryInstance?.name}">
-				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="ministry.name.label" default="Name" /></span>
-					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${ministryInstance}" field="name"/></span>
-					
-				</li>
-				</g:if>
+			
 			
 				<g:if test="${ministryInstance?.participants}">
 				<li class="fieldcontain">
@@ -118,14 +159,8 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${ministryInstance?.type}">
-				<li class="fieldcontain">
-					<span id="type-label" class="property-label"><g:message code="ministry.type.label" default="Type" /></span>
-					
-						<span class="property-value" aria-labelledby="type-label"><g:fieldValue bean="${ministryInstance}" field="type"/></span>
-					
-				</li>
-				</g:if>
+				
+				--%>
 			
 			</ol>
 			<g:form url="[resource:ministryInstance, action:'delete']" method="DELETE">

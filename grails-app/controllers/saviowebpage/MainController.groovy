@@ -15,12 +15,16 @@ class MainController {
 		
 		
 		def quoteList = Quote.getRandomList(grailsApplication.config.quotesNumber)
-		
+		def c = Ministry.createCriteria()
+		def ministries = c.list {
+			eq("isPublished", true)
+			maxResults(6)
+		}
 		
 		render(view: "index", model:[menus: Menu.list(),
 			 events: eventList, 
 			 posts: postList,
-			 ministries: Ministry.list(max: 6),
+			 ministries: ministries,
 			 newsletterInstance: new Newsletter(),
 			 quotes: quoteList,
 			 fragment: params.fragment.toString()])
