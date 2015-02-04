@@ -7,8 +7,8 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Marcel Newman</h5>
+              	  <p class="centered"><a href="#"><img src="${resource(dir: 'assets/img', file: 'ui-sam.jpg')}" class="img-circle" width="60"></a></p>
+              	  <h5 class="centered">Dominic Savio Admin</h5>
               	  	
                   <li class="mt">
                       <g:link class="active" controller="administration" action="index">
@@ -16,7 +16,7 @@
                           <span>Dashboard</span>
                        </g:link>
                   </li>
-				    <li class="sub-menu">
+				   <%-- <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-tasks"></i>
                           <span>Menu</span>
@@ -26,6 +26,7 @@
                           <li><a  href="form_component.html">Menu 2</a></li>
                       </ul>
                   </li>
+                   --%>
                   <li class="sub-menu">
                   	<g:link controller="ministry" action="index">
                           <i class="fa fa-tasks"></i>

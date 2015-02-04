@@ -35,6 +35,7 @@
     <g:javascript library="jquery" plugin="jquery"/>
           <!-- Bootstrap -->
    
+  
    
       <g:layoutHead />
    </head>
@@ -125,7 +126,7 @@ $(document).ready(function() {
  $('.fancybox').fancybox();		
 
  /*Menu smooth slide in case of fragment*/
- if ("${fragment}") {
+ if ("${fragment?fragment:'null'}" !='null') {
 	
 	
 	var target = "#${fragment}";

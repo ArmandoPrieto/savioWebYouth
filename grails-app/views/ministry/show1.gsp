@@ -3,18 +3,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="adminSavioLayout-2">
 		<g:set var="entityName" value="${message(code: 'ministry.label', default: 'Ministry')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-ministry" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
+	
+		 <div class="content-panel">
+	
+	
+		<div class="showback" role="navigation">
+		<h4><i class="fa fa-angle-right"></i> Actions</h4>
+			
+			<a class="btn btn-theme" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
+				<g:link class="btn btn-theme02" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link>
+				<g:link class="btn btn-theme03" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
+			
 		</div>
 		<div id="show-ministry" class="content scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
@@ -125,11 +129,15 @@
 			
 			</ol>
 			<g:form url="[resource:ministryInstance, action:'delete']" method="DELETE">
+				<div class="showbackNoShadow" role="navigation">
 				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${ministryInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					<g:link class="btn btn-theme03" action="edit" resource="${ministryInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					<g:actionSubmit class="btn btn-theme04" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
+				</div>
 			</g:form>
+		</div>
+		
 		</div>
 	</body>
 </html>

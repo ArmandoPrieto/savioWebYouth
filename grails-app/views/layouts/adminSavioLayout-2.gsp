@@ -10,7 +10,22 @@
     <title>Savio Youth Ministry</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="${resource(dir: 'assets/css', file: 'bootstrap.css')}" />
+     <link rel="stylesheet" href="${resource(dir: 'assets/font-awesome/css', file: 'font-awesome.css')}" />
+     <link rel="stylesheet" href="${resource(dir: 'assets/css', file: 'zabuto_calendar.css')}" />
+     <link rel="stylesheet" href="${resource(dir: 'assets/js/gritter/css', file: 'jquery.gritter.css')}" />
+     <link rel="stylesheet" href="${resource(dir: 'assets/lineicons', file: 'style.css')}" />
+     
+    
+      <!-- Custom styles for this template -->
+       <link rel="stylesheet" href="${resource(dir: 'assets/css', file: 'style.css')}" />
+   	  <link rel="stylesheet" href="${resource(dir: 'assets/css', file: 'style-responsive.css')}" />
+     
+     
+     <script src="${resource(dir: 'assets/js/chart-master', file: 'Chart.js')}"></script>
+      <asset:javascript src="application.js"/>
+     
+    <%-- <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
     <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css">
@@ -24,12 +39,21 @@
     <script src="../assets/js/chart-master/Chart.js"></script>
     <asset:javascript src="application.js"/>
     
+	--%>
+     
+     
+    
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    
+    	
       <g:layoutHead />
+       
+   
   </head>
   
   <body>
@@ -65,7 +89,7 @@
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              2014 - Alvarez.is
+              2014 - Prieto.io
               <a href="index.html#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
@@ -76,15 +100,38 @@
   
   
      <!-- js placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/jquery-1.8.3.min.js"></script>
+    <%-- <script src="../assets/js/jquery.js"></script>
+   <script src="../assets/js/jquery-1.8.3.min.js"></script>--%>
+     <link rel="stylesheet" href="${resource(dir: 'assets/css', file: 'style-responsive.css')}" />
+     
+     
+     <script src="${resource(dir: 'assets/js', file: 'bootstrap.min.js')}"></script>
+   <script class="include" src="${resource(dir: 'assets/js', file: 'jquery.dcjqaccordion.2.7.js')}"></script>
+   <script src="${resource(dir: 'assets/js', file: 'jquery.scrollTo.min.js')}"></script>
+   <script src="${resource(dir: 'assets/js', file: 'jquery.nicescroll.js')}"></script>
+    <script src="${resource(dir: 'assets/js', file: 'jquery.sparkline.js')}"></script>
+    
+     <!--common script for all pages-->
+     <script src="${resource(dir: 'assets/js', file: 'common-scripts.js')}"></script>
+    
+     <script src="${resource(dir: 'assets/js/gritter/js', file: 'jquery.gritter.js')}"></script>
+      <script src="${resource(dir: 'assets/js', file: 'gritter-conf.js')}"></script>
+      
+       <!--script for this page-->
+       <script src="${resource(dir: 'assets/js', file: 'sparkline-chart.js')}"></script>
+     <script src="${resource(dir: 'assets/js', file: 'zabuto_calendar.js')}"></script>
+     
+     
+  
+   
+   <%-- 
     <script src="../assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="../assets/js/jquery.scrollTo.min.js"></script>
     <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="../assets/js/jquery.sparkline.js"></script>
 
-
+ 
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
     
@@ -94,7 +141,7 @@
     <!--script for this page-->
     <script src="../assets/js/sparkline-chart.js"></script>    
 	<script src="../assets/js/zabuto_calendar.js"></script>	
-	
+	--%>
 	<script>	
         $(document).ready(function () {
       /*  var unique_id = $.gritter.add({

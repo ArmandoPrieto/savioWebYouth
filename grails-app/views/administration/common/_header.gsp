@@ -9,7 +9,7 @@
             <!--logo start-->
             <a href="index.html" class="logo"><b>Savio Youth Ministry</b></a>
             <!--logo end-->
-        <g:render template="/administration/common/notifications" />
+      <%--   <g:render template="/administration/common/notifications" /> --%>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><g:link controller="logout" class="logout">Logout</g:link></li>

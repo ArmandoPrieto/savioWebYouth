@@ -50,6 +50,8 @@
 }
 </style>
 
+
+
 </head>
 <body>
 
@@ -145,6 +147,7 @@
 	<script src="${resource(dir: 'js/plugins', file: 'video.min.js')}"></script>
 	<script>
 		  $(function(){
+			  
 	          $('#edit')
 	            .editable({inlineMode: false})
 	      });
