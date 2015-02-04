@@ -10,23 +10,25 @@
               
                   
 					
-		<div class="row">
-					
-						
-						<div class="col-lg-4 col-md-4 col-sm-4 mb">
-							<!-- WHITE PANEL - TOP USER -->
-							<div class="white-panel pn">
-								<div class="white-header">
-									<h5>Ministries</h5>
-								</div>
-								
-							</div>
-						</div><!-- /col-md-4 -->
-						
-						
-					</div><! --/END 1ST ROW OF PANELS -->
-  
-
+		<div class="row mtbox">
+                  		
+                  		<div class="col-md-2 col-sm-2 box0">
+                  			<div class="box1">
+					  			<span class="li_news"></span>
+					  			<h3>Ministries</h3>
+                  			</div>
+					  			<p>More than 10 ministries.</p>
+                  		</div>
+                  		<div class="col-md-2 col-sm-2 box0">
+                  			<div class="box1">
+					  			<span class="li_data"></span>
+					  			
+					  			<h3>Administration</h3>
+                  			</div>
+					  			<p>Your server is working perfectly. Relax & enjoy.</p>
+                  		</div>
+                  	
+                  	</div><!-- /row mt -->	
    
   
 
