@@ -1,6 +1,8 @@
 package saviowebpage
 import administration.Menu
 import grails.util.Holders
+import common.ResourceType
+
 class MainController {
 
 	def googleCalendarReaderService
@@ -20,6 +22,15 @@ class MainController {
 			eq("isPublished", true)
 			maxResults(6)
 		}
+		def c1 = Resource.createCriteria()
+		def links = c1.list {
+			eq("type", ResourceType.LINK)
+		}
+		def c2 = Resource.createCriteria()
+		def videos = c2.list {
+			eq("type", ResourceType.VIDEO)
+		}
+		
 		
 		render(view: "index", model:[menus: Menu.list(),
 			 events: eventList, 
@@ -27,6 +38,8 @@ class MainController {
 			 ministries: ministries,
 			 newsletterInstance: new Newsletter(),
 			 quotes: quoteList,
+			 links: links,
+			 videos: videos,
 			 fragment: params.fragment.toString()])
 		
 		

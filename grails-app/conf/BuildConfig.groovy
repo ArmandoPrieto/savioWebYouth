@@ -114,7 +114,7 @@ grails.project.dependency.resolution = {
     }
 
 }
-grails.project.war.file = "target/myapp.war"
+grails.project.war.file = "target/ROOT.war"
 
 
 

@@ -77,8 +77,8 @@ class GoogleBloggerReaderService {
 			
 			post.setContent(clean)
 			post.setShortContent(cortarCadenaPorPuntos(clean, 300).toString())
-			println(post.content)
-			println(post.shortContent)
+		//	println(post.content)
+		//	println(post.shortContent)
 			
 			it.images.each{ a ->
 				a.url

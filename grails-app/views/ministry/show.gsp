@@ -22,14 +22,23 @@
 
 <div class="container has-margin-bottom">
   <div class="row">
+ 
     <div class="col-md-9 has-margin-bottom"> <img src="${createLink(controller: 'image', action: 'picture',id: ministryInstance.imageId)}" class="img-responsive has-margin-xs-bottom" alt="ministry">
+      <p>   </p>
+      <div class="g-plusone" data-size="medium" data-href="http://localhost:8080/savioWebPage/ministry/show/1"></div>
+ <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="300" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-via="savioym" data-size="medium" data-related="savioym" data-hashtags="SavioWebSite">Tweet</a>
+  
       <p>${raw(ministryInstance.description)}</p>
     </div>
     <!--// col md 9--> 
-    <%-- 
+    
     <!--Latest Sermons-->
     <div class="col-md-3">
-      <div class="event-right-block has-border has-margin-bottom">
+    <div class="g-plusone" data-size="medium" data-href="http://localhost:8080/savioWebPage/ministry/show/1"></div>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-via="savioym" data-size="medium" data-related="savioym" data-hashtags="SavioWebSite">Tweet</a>
+   <div class="fb-like" data-href="http://localhost:8080/savioWebPage/ministry/show/1" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+     <%-- <div class="event-right-block has-border has-margin-bottom">
         <div class="section-title highlight-bg has-padding-xs-top has-padding-bottom">
           <h4> UPCOMING EVENTS </h4>
         </div>
@@ -64,8 +73,9 @@
           <p class="list-group-item-text">17:00 mins</p>
           </a> </div>
       </div>
-    </div>
     --%>
+    </div>
+   
   </div>
 </div>
 
@@ -81,6 +91,17 @@
 <g:render template="/common/bottom" model="${newsletterInstance}"/>
 
 
+<!-- Inserta esta etiqueta en la sección "head" o justo antes de la etiqueta "body" de cierre. -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1524105587863612&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>

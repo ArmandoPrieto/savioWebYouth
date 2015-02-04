@@ -183,23 +183,15 @@
         </div>
         <img src="${resource(dir: 'images', file: 'links.jpg')}" class="img-responsive center-block" alt="video thumb">
         <div class="list-group"> 
-        <a href="http://www.donboscowest.org/" class="list-group-item" target="_blank">
-          <p class="list-group-item-heading">Salesians USA West</p>
-         
-          </a> 
-          <a href="http://www.infoans.org/Index.asp?Lingua=2" class="list-group-item" target="_blank">
-          <p class="list-group-item-heading">Salesian Information Agency</p>
-         
-          </a> 
-          <a href="http://www.sdb.org/en" class="list-group-item" target="_blank">
-          <p class="list-group-item-heading">SDB.org</p>
-        
-          </a> 
-          
+         <g:each in="${links}">
+       		 <a href="${it.url}" class="list-group-item" target="_blank">
+          		<p class="list-group-item-heading">${it.text}</p>
+         	 </a> 
+          </g:each>
         </div>
       </div>
     </div>
-    <%--
+    
      <!--Latest Sermons-->
     <div id="recommendedVideo" class="col-md-3">
       <div class="well">
@@ -208,23 +200,16 @@
         </div>
         <img src="${resource(dir: 'images', file: 'video-overlay.png')}" class="img-responsive center-block" alt="video thumb">
         <div class="list-group"> 
-        <a href="http://www.donboscowest.org/" class="list-group-item" target="_blank">
-          <p class="list-group-item-heading">Salesians USA West</p>
-         
-          </a> 
-          <a href="http://www.infoans.org/Index.asp?Lingua=2" class="list-group-item" target="_blank">
-          <p class="list-group-item-heading">Salesian Information Agency</p>
-         
-          </a> 
-          <a href="http://www.sdb.org/en" class="list-group-item" target="_blank">
-          <p class="list-group-item-heading">SDB.org</p>
-        
-          </a> 
+         <g:each in="${videos}">
+	        <a href="${it.url}" class="list-group-item" target="_blank">
+	          <p class="list-group-item-heading">${it.text}</p>
+	        </a> 
+         </g:each>
           
         </div>
       </div>
     </div>
-    --%>
+   
   </div>
 </div><g:render template="/common/menu" />
 <!-- END BLOG LIST / LATEST SERMONS --> 

@@ -15,9 +15,9 @@
 		<div class="showback" role="navigation">
 		<h4><i class="fa fa-angle-right"></i> Actions</h4>
 			
-			<a class="btn btn-theme" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
-				<g:link class="btn btn-theme02" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link>
-				<g:link class="btn btn-theme03" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
+			<g:link class="btn btn-theme" controller="administration" action="index"><i class="fa fa-cog"></i><g:message code="default.home.label"/></g:link>
+				<g:link class="btn btn-theme02" action="index"><i class="fa fa-list"></i><g:message code="default.list.label" args="[entityName]" /></g:link>
+				<g:link class="btn btn-theme03" action="create"><i class="fa fa-check"></i><g:message code="default.new.label" args="[entityName]" /></g:link>
 			
 		</div>
 		<div id="show-ministry" class="content scaffold-show" role="main">
@@ -160,9 +160,10 @@
 				</g:if>
 			
 				
-				--%>
+				
 			
 			</ol>
+			--%>
 			<g:form url="[resource:ministryInstance, action:'delete']" method="DELETE">
 				<div class="showbackNoShadow" role="navigation">
 				<fieldset class="buttons">

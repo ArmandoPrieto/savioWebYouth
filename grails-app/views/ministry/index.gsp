@@ -15,7 +15,7 @@
 	
 		<div class="showback" role="navigation">
 		<h4><i class="fa fa-angle-right"></i> Actions</h4>
-			<a class="btn btn-theme" href="${createLink(uri: '/')}"><i class="fa fa-cog"></i> <g:message code="default.home.label"/></a>
+			<g:link class="btn btn-theme" controller="administration" action="index"><i class="fa fa-cog"></i> <g:message code="default.home.label"/></g:link>
 			<g:link class="create" action="create" class="btn btn-theme03"><i class="fa fa-check"></i> <g:message code="default.new.label" args="[entityName]" /></g:link>
 		</div>
 		

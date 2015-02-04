@@ -204,7 +204,7 @@ class ImageController {
 		def pic = Image.get(params.id)
 		
 		File picFile = new File("$storageDirectory/crop-${pic.imageId}")
-		println("Hola")
+		
 		response.contentType = 'image/jpeg'
 		response.outputStream << new FileInputStream(picFile)
 		response.outputStream.flush()

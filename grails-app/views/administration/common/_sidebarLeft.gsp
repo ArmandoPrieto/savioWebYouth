@@ -33,6 +33,19 @@
                           <span>Ministries</span>
                       </g:link>
                   </li>
+                   <li class="sub-menu">
+                  	<g:link controller="resource" action="index">
+                          <i class="fa fa-tasks"></i>
+                          <span>Resources</span>
+                      </g:link>
+                  </li>
+                    <li class="sub-menu">
+                  	<g:link controller="quote" action="index">
+                          <i class="fa fa-tasks"></i>
+                          <span>Quotes</span>
+                      </g:link>
+                  </li>
+                   
                  
               </ul>
               <!-- sidebar menu end-->
