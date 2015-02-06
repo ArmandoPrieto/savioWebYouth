@@ -27,6 +27,12 @@
                       </ul>
                   </li>
                    --%>
+                    <li class="sub-menu">
+                  	<g:link controller="banner" action="index">
+                          <i class="fa fa-tasks"></i>
+                          <span>Banner</span>
+                      </g:link>
+                  </li>
                   <li class="sub-menu">
                   	<g:link controller="ministry" action="index">
                           <i class="fa fa-tasks"></i>

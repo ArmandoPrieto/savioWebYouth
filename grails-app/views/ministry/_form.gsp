@@ -11,7 +11,7 @@
 	</div>
 </div>
 
-<div class="form-group  fieldcontain ${hasErrors(bean: ministryInstance, field: 'subTitle', 'error')} required">
+<div class="form-group fieldcontain ${hasErrors(bean: ministryInstance, field: 'subTitle', 'error')} required">
 	<label class="col-sm-2 col-sm-2 control-label" for="subTitle">
 		<g:message code="ministry.subTitle.label" default="Sub Title" />
 		<span class="required-indicator">*</span>
