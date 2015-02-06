@@ -58,8 +58,8 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<div class="col-sm-10">
-	<g:textField class="form-control" name="imageId" required="" value="${bannerInstance?.imageId}"/>
-	</div>
+	<g:textField class="form-control" id="myOutputId" type="text" name="imageId" required="" value="${bannerInstance?.imageId}" style="visibility:hidden"/>
+	</div> 
 </div>
 
 <div class="form-group fieldcontain ${hasErrors(bean: bannerInstance, field: 'type', 'error')} required">

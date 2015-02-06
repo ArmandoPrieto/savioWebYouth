@@ -5,22 +5,14 @@
 <meta name="layout" content="adminSavioLayout-2">
 <g:set var="entityName"
 	value="${message(code: 'ministry.label', default: 'Ministry')}" />
-<title><g:message code="default.create.label"
-		args="[entityName]" /></title>
+<title><g:message code="default.create.label" args="[entityName]" /></title>
 
 
-<link rel="stylesheet"
-	href="${resource(dir: 'css', file: 'croppic.css')}" />
+<link rel="stylesheet" href="${resource(dir: 'css', file: 'croppic.css')}" />
 
-<link rel="stylesheet"
-	href="${resource(dir: 'css', file: 'font-awesome.css')}"
-	type="text/css" />
-<link rel="stylesheet"
-	href="${resource(dir: 'css', file: 'froala_editor.css')}"
-	type="text/css" />
-<link rel="stylesheet"
-	href="${resource(dir: 'css', file: 'froala_style.css')}"
-	type="text/css" />
+<link rel="stylesheet" href="${resource(dir: 'css', file: 'font-awesome.css')}"	type="text/css" />
+<link rel="stylesheet"	href="${resource(dir: 'css', file: 'froala_editor.css')}"	type="text/css" />
+<link rel="stylesheet"	href="${resource(dir: 'css', file: 'froala_style.css')}"	type="text/css" />
 
 <script src="${resource(dir: 'js', file: 'croppic.js')}"></script>
 <%--  <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" />
@@ -137,13 +129,10 @@
 	<script src="${resource(dir: 'js/plugins', file: 'tables.min.js')}"></script>
 	<script src="${resource(dir: 'js/plugins', file: 'lists.min.js')}"></script>
 	<script src="${resource(dir: 'js/plugins', file: 'colors.min.js')}"></script>
-	<script
-		src="${resource(dir: 'js/plugins', file: 'media_manager.min.js')}"></script>
-	<script
-		src="${resource(dir: 'js/plugins', file: 'font_family.min.js')}"></script>
+	<script	src="${resource(dir: 'js/plugins', file: 'media_manager.min.js')}"></script>
+	<script	src="${resource(dir: 'js/plugins', file: 'font_family.min.js')}"></script>
 	<script src="${resource(dir: 'js/plugins', file: 'font_size.min.js')}"></script>
-	<script
-		src="${resource(dir: 'js/plugins', file: 'block_styles.min.js')}"></script>
+	<script	src="${resource(dir: 'js/plugins', file: 'block_styles.min.js')}"></script>
 	<script src="${resource(dir: 'js/plugins', file: 'video.min.js')}"></script>
 	<script>
 		  $(function(){
