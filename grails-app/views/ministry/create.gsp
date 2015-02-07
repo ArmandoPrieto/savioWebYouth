@@ -7,7 +7,7 @@
 	value="${message(code: 'ministry.label', default: 'Ministry')}" />
 <title><g:message code="default.create.label" args="[entityName]" /></title>
 
-
+  
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'croppic.css')}" />
 
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'font-awesome.css')}"	type="text/css" />

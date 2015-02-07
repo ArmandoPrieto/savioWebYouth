@@ -30,6 +30,7 @@ class MainController {
 		def videos = c2.list {
 			eq("type", ResourceType.VIDEO)
 		}
+		def banners = Banner.list(max: 6)
 		
 		
 		render(view: "index", model:[menus: Menu.list(),
@@ -40,6 +41,7 @@ class MainController {
 			 quotes: quoteList,
 			 links: links,
 			 videos: videos,
+			 banners: banners,
 			 fragment: params.fragment.toString()])
 		
 		

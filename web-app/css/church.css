@@ -426,7 +426,7 @@ top: 25%;
 .carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right {
 	top:55%;
 }
-.slide-one {
+/*.slide-one {
 	background:url(../images/camp-savio_opt.jpg) no-repeat;
 	background-size:cover;
 }
@@ -437,7 +437,7 @@ top: 25%;
 .slide-three {
 	background:url(../images/BeFunky_full.jpg) no-repeat;
 	background-size:cover;
-}
+}*/
 /*========== 4. UPCOMING EVENT ==============*/
 
 .event-cta {

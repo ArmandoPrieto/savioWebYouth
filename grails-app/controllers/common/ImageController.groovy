@@ -49,18 +49,23 @@ class ImageController {
 		
 		def imgInitW = params.imgInitW //=640
 		def imgInitH = params.imgInitH //=480
+		print("imgInitW" +imgInitW)
+		print("imgInitH" +imgInitH)
 		
 		def imgUrl = params.imgUrl //=http://localhost:8080/savioWebPage/images/uploads/5a8d5c55-cf75-485b-93e5-cf7fc0957f40.JPG
 		
 		def imgH = params.imgH //=330
 		def imgW = params.imgW //=440
+		print("imgW" +imgW)
+		print("imgH" +imgH)
 		
 		def imgY1 = params.imgY1 //=40 
 		def imgX1 = params.imgX1 //=20 
 		
 		def cropH = params.cropH //=250
 		def cropW = params.cropW //=400
-		
+		print("cropH" +imgW)
+		print("cropW" +imgH)
 		if(cropH > imgH || cropW > imgW){
 		
 			render(["status":"error",

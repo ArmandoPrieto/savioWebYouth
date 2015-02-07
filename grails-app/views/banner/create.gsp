@@ -26,8 +26,8 @@
             text-align: left;
         }*/
 #cropContainerHeader, #cropContainerModal {
-	width: 1300px;
-	height: 600px;
+	width: 800px;
+	height: 456px;
 	border-color: black;
 	border-style: solid;
 	border-top-width: 5px;
@@ -37,6 +37,7 @@
 	position: relative; /* or fixed or absolute */
 	margin-bottom: 15px;
 }
+
 </style>
 
 	

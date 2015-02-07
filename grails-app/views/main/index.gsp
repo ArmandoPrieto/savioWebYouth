@@ -1,10 +1,22 @@
-﻿<!DOCTYPE html>
+﻿<%@ page import="common.BannerType" %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- Meta, title, CSS, favicons, etc. -->
  <meta name="layout" content="savioLayout"/>
 
  <link rel="stylesheet" href="${resource(dir: 'css', file: 'circle.css')}" />
+ 
+ <style>
+  <g:each in="${banners}">
+  	
+  	.slide-${it.id} {
+	background:url(${createLink(controller: 'image', action: 'picture', id: it.imageId)}) no-repeat;
+	background-size:cover;
+	}
+  </g:each>
+ 
+ </style>
 </head>
 <body>
 <div id="top"></div>
@@ -21,49 +33,35 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <g:each in="${banners}" var="it" status="i">
+      <li data-target="#myCarousel" data-slide-to="${i}" ${i==0?'active':''}></li>
+    </g:each>
   </ol>
+  
   <div class="carousel-inner">
-    <div class="item slide-one active">
+    <g:each in="${banners}" var="it" status="i">
+    <div class="item slide-${it.id} ${i==0?'active':''}">
       <div class="container">
         <div class="carousel-caption">
-          <h3>Be ready! #iAmSalesian</h3>
-          <h1>Camp Savio 2015</h1>
-          
-          <p><a class="btn btn-lg btn-primary" href="image-gallery.html" role="button">Browse gallery &rarr;</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="item slide-two">
-      <div class="container">
-        <div class="carousel-caption">
-          <h2>Don Bosco's Bicentenary</h2>
-          <p class="lead">It is enough that you are young for me to love you.</p>
-          <p><a class="btn btn-lg btn-primary" 
-          href="https://www.youtube.com/watch?v=0i0PlLWdwo4&html5=true" 
+          <h3>${it.preTitle}</h3>
+          <h1>${it.title}</h1>
+          <p class="lead">${it.text}</p>
+          <g:if test="${it.type == BannerType.VIDEO}">
+            <p><a class="btn btn-lg btn-primary" 
+          href="${it.url}"
           data-toggle="lightbox"
-          data-title="Don Bosco's Bicentenary" 
+          data-title="${it.title}" 
           data-width="1280"
-          role="button">Watch the video &rarr;</a></p>
+          role="button">${it.buttonText} &rarr;</a></p>
+        </g:if>
+        <g:else>
+        <p><a class="btn btn-lg btn-primary" href="${it.url}" role="button" target="_blank">${it.buttonText} &rarr;</a></p>
+        </g:else>
+        
         </div>
       </div>
     </div>
-    <div class="item slide-three">
-      <div class="container">
-        <div class="carousel-caption">
-          <h2>Salesian Volunteers Program</h2>
-          <p class="lead">For God did not send his Son into the world to condemn the world, but to save the world through him. <em>John 3:17</em></p>
-          <p><a class="btn btn-lg btn-primary" 
-          href="https://www.youtube.com/watch?v=Q3a3Qa92D_c"
-          data-toggle="lightbox"
-          data-title="Salesian Volunteers Program" 
-          data-width="1280"
-          role="button">Watch the video &rarr;</a></p>
-        </div>
-      </div>
-    </div>
+    </g:each>
   </div>
   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> </div>
 <!-- // Banner Slider --> 

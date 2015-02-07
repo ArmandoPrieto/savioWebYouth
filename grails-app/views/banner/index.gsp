@@ -41,7 +41,10 @@
 						<g:sortableColumn property="buttonText" title="${message(code: 'banner.buttonText.label', default: 'Button Text')}" />
 					
 						<g:sortableColumn property="imageId" title="${message(code: 'banner.imageId.label', default: 'Image Id')}" />
-							<th> Actions </th>
+						
+						<g:sortableColumn property="type" title="${message(code: 'resource.type.label', default: 'Type')}" />
+						
+						<th> Actions </th>
 					</tr>
 				</thead>
 				<tbody>
@@ -59,6 +62,9 @@
 						<td>${fieldValue(bean: bannerInstance, field: "buttonText")}</td>
 					
 						<td>${fieldValue(bean: bannerInstance, field: "imageId")}</td>
+						
+						<td>${fieldValue(bean: bannerInstance, field: "type")}</td>
+						
 						<td><g:link class="btn btn-theme" action="show" id="${bannerInstance.id}">Show detail</g:link></td>
 				
 					</tr>
