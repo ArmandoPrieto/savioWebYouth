@@ -1,3 +1,4 @@
+<%@ page import="administration.SubMenu" %>
 <!-- Navigation Bar Starts -->
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -11,23 +12,26 @@
     
       <ul class="nav navbar-nav navbar-right">
       <g:each in="${menus}">
-   <g:if test="${it?.subMenu}">
-     <li class="${it.active?'active':''} dropdown"><g:link class="dropdown-toggle" data-toggle="dropdown"> ${it.title} <span class="caret"></span></g:link>
-    
-    	 <ul class="dropdown-menu dropdown-menu-left" role="menu">
-    	<g:each in="${it.subMenu}" var="sub">
-    	
-    	   <li><a href="${it.url}">${sub.title}</a></li>
-    	
-    	</g:each>
-    	 </ul>
-    	
-    </li>
-   </g:if>
-   <g:else>
-    <li class="${it.active?'active':''}"><a href="${it.url}"> ${it.title}</a>
-     </li>
-   </g:else>
+      
+    <g:if test="${it instanceof SubMenu == false}">  
+		   <g:if test="${it?.subMenu}">
+		     <li class="${it.active?'active':''} dropdown"><g:link class="dropdown-toggle" data-toggle="dropdown"> ${it.title} <span class="caret"></span></g:link>
+		    
+		    	 <ul class="dropdown-menu dropdown-menu-left" role="menu">
+		    	<g:each in="${it.subMenu}" var="sub">
+		    	
+		    	   <li><a href="${sub.url}">${sub.title}</a></li>
+		    	
+		    	</g:each>
+		    	 </ul>
+		    	
+		    </li>
+		   </g:if>
+		   <g:else>
+		    <li class="${it.active?'active':''}"><a href="${it.url}"> ${it.title}</a>
+		     </li>
+		   </g:else>
+    </g:if>
   
    
 </g:each>

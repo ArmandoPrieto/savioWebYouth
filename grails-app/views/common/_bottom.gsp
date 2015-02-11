@@ -28,7 +28,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="container">
+  <div id="about" class="container">
     <div class="row">
       <div class="col-sm-6 col-md-6">
         <h5>ABOUT SAVIO YOUTH MINISTRY</h5>

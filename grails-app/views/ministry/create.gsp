@@ -40,6 +40,10 @@
 	position: relative; /* or fixed or absolute */
 	margin-bottom: 15px;
 }
+.croppedImg{
+width: 1300px;
+	height: 600px;
+}
 </style>
 
 
@@ -144,6 +148,10 @@
 				uploadUrl:'${createLink(controller:'image', action: 'upload', absolute: true)}',
 				cropUrl:'${createLink(controller:'image', action: 'crop', absolute: true)}',
 				outputUrlId:'myOutputId',
+				cropData:{
+					"frameWidth":1300,
+					"frameHeight":600
+				},
 				modal:true,
 				imgEyecandyOpacity:0.4,
 				loaderHtml:'<div class="loader bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div> '

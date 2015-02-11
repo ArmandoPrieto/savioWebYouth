@@ -4,4 +4,6 @@ class SubMenu extends Menu {
 
     static constraints = {
     }
+	
+
 }

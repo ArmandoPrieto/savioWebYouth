@@ -84,7 +84,10 @@
 <div id="ourMethod" class=".container-fluid">
   <div class="row feature-block ch-grid" >
     
-   
+     <div class="section-title">
+    <h4> OUR METHOD </h4>
+  </div>
+  
 
 
 <ul class="ch-grid">
@@ -191,7 +194,7 @@
     </div>
     
      <!--Latest Sermons-->
-    <div id="recommendedVideo" class="col-md-3">
+    <div id="recommendedVideos" class="col-md-3">
       <div class="well">
         <div class="section-title">
           <h4> RECOMMENDED VIDEOS</h4>
@@ -284,7 +287,7 @@
 <!--// END OUR GALLERY --> 
 
 <!-- BIBLE QUOTES -->
-<div class="highlight-bg has-margin-bottom">
+<div id="quotes" class="highlight-bg has-margin-bottom">
   <div class="container event-list">
     <div class="section-title">
       <h4> BIBLE QUOTES </h4>
@@ -314,7 +317,7 @@
   </div>
   
      <g:render template="/ministry/list" model="['ministries':ministries,'n':1]"/>
-   
+   <%-- 
   <div class="row feature-block">
     <div class="col-md-4 col-sm-6 has-margin-bottom"> <img class="img-responsive" src="${resource(dir: 'images', file: 'ministry_1.jpg')}" alt="catholic church">
       <h5>CAMP SAVIO</h5>
@@ -335,6 +338,7 @@
     </div>
     <!-- /.col-md-4 --> 
   </div>
+  --%>
 
 </div>
 <!-- // END OUR MINISTRIES--> 

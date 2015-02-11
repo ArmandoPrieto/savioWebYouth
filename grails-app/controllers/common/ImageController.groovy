@@ -46,26 +46,38 @@ class ImageController {
 	cropH 		// cropped image height
 	
 	*/
-		
-		def imgInitW = params.imgInitW //=640
-		def imgInitH = params.imgInitH //=480
+		float coversionRateW = 0.0
+		float coversionRateH = 0.0
+		float frameW = Float.parseFloat(params.frameWidth)
+		float frameH = Float.parseFloat(params.frameHeight)
+		print("**********")
+		print("frameW" +frameW)
+		print("frameH" +frameH)
+		float imgInitW = Float.parseFloat(params.imgInitW) //=640
+		float imgInitH = Float.parseFloat(params.imgInitH) //=480
 		print("imgInitW" +imgInitW)
 		print("imgInitH" +imgInitH)
 		
+		
+		
 		def imgUrl = params.imgUrl //=http://localhost:8080/savioWebPage/images/uploads/5a8d5c55-cf75-485b-93e5-cf7fc0957f40.JPG
 		
-		def imgH = params.imgH //=330
-		def imgW = params.imgW //=440
+		float imgH = Float.parseFloat(params.imgH) //=330
+		float imgW = Float.parseFloat(params.imgW) //=440
 		print("imgW" +imgW)
 		print("imgH" +imgH)
 		
-		def imgY1 = params.imgY1 //=40 
-		def imgX1 = params.imgX1 //=20 
+		float imgY1 = Float.parseFloat(params.imgY1) //=40 
+		float imgX1 = Float.parseFloat(params.imgX1) //=20 
 		
-		def cropH = params.cropH //=250
-		def cropW = params.cropW //=400
+		float cropH = Float.parseFloat(params.cropH) //=250
+		float cropW = Float.parseFloat(params.cropW) //=400
 		print("cropH" +imgW)
 		print("cropW" +imgH)
+		
+		coversionRateW = imgInitW/ imgW
+		coversionRateH = imgInitH/imgH
+		
 		if(cropH > imgH || cropW > imgW){
 		
 			render(["status":"error",
@@ -80,9 +92,13 @@ class ImageController {
 		
 		BufferedImage img = ImageIO.read(newFile);
 		
-		BufferedImage scaledImg = Scalr.resize(img, Method.QUALITY, Float.parseFloat(imgW).round(), Float.parseFloat(imgH).round());
-		scaledImg = Scalr.crop(scaledImg, Float.parseFloat(imgX1).round(), Float.parseFloat(imgY1).round(), Float.parseFloat(cropW).round(), Float.parseFloat(cropH).round(), null)
+		BufferedImage scaledImg = Scalr.resize(img, Method.QUALITY, imgInitW.round(), imgInitH.round());
+		scaledImg = Scalr.crop(img, (imgX1*coversionRateW).round().toInteger(), 
+									(imgY1*coversionRateH).round().toInteger(), 
+									(cropW*coversionRateW).round().toInteger(), 
+									(cropH*coversionRateH).round().toInteger(), null)
 		
+
 	
 		File cropFile = new File("$storageDirectory/crop-$imageId")
 		ImageIO.write(scaledImg, extension, cropFile)

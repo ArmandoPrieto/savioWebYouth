@@ -4,9 +4,9 @@
 	        <div class="row feature-block">
 		</g:if>
 		<div class="col-md-4 col-sm-6 has-margin-bottom">
-		 <div style="width:370px;height:120px;overflow:hidden">
+		<%--  <div style="width:370px;height:120px;overflow:hidden">--%>
 		 <img class="img-responsive" src="${createLink(controller: 'image', action: 'thumbnail',id: it.imageId, absolute: true)}" alt="catholic church">
-		 </div>
+		<%--  </div>--%>
 		    <h5>${it.name.toUpperCase()}</h5>
 		    <p>${it.subTitle}</p>
 		    <p><g:link controller="ministry" action="show" id="${it.id}" role="button">Read more →</g:link></p>

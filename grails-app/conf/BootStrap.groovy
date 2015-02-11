@@ -1,4 +1,5 @@
 import administration.Menu
+import administration.SubMenu
 import com.security.Role
 import com.security.User
 import com.security.UserRole
@@ -25,11 +26,16 @@ transient springSecurityService
 				adminUser.save(failOnError: true)
 				UserRole.create(adminUser,adminRole, true)	
 				
-				def a = new Menu(title:"Home", url:"#top",  active:true, subMenu: null).save(flush: true)
-				def b = new Menu(title:"Bulletin", url:"#bulletin",  active:false, subMenu: null).save(flush: true)
-				//def c = new Menu(title:"Home1", url:"",  active:false, subMenu: null).save(flush: true)
-				def d = new Menu(title:"Ministries", url:"#ministries",  active:false, subMenu: [a,b]).save(flush: true)
-			
+				
+				def topMenu = new Menu(title:"Home", url:"#top",  active:true, subMenu: null).save(flush: true)
+				def eventsMenu = new Menu(title:"Program & Events", url:"#events",  active:false, subMenu: null).save(flush: true)
+				def bulletinMenu = new Menu(title:"Bulletin", url:"#bulletin",  active:false, subMenu: null).save(flush: true)
+				def quotesMenu = new SubMenu(title:"Quotes", url:"#quotes",  active:false, subMenu: null).save(flush: true)
+				def linksMenu = new SubMenu(title:"Recommended Links", url:"#recommendedLinks",  active:false, subMenu: null).save(flush: true)
+				def videosMenu = new SubMenu(title:"Recommended Videos", url:"#recommendedVideos",  active:false, subMenu: null).save(flush: true)
+				def ministriesMenu = new Menu(title:"Ministries", url:"#ministries",  active:false, subMenu: null).save(flush: true)
+				def resourcesMenu = new Menu(title:"Resources", url:"#",  active:false, subMenu: [linksMenu, videosMenu, quotesMenu]).save(flush: true)
+				def aboutMenu = new Menu(title:"About Savio YM", url:"#about",  active:false, subMenu: null).save(flush: true)
 				
 				new Quote(text: "There can be no virtue without obedience", author:"Don Bosco").save(flush:true)
 				new Quote(text: "All armies are useless unless assisted by God", author:"Don Bosco").save(flush:true)
@@ -56,12 +62,18 @@ transient springSecurityService
 				adminUser.save(failOnError: true)
 				UserRole.create(adminUser,adminRole, true)	
 				
-				def a = new Menu(title:"Home", url:"#top",  active:true, subMenu: null).save(flush: true)
-				def b = new Menu(title:"Bulletin", url:"#bulletin",  active:false, subMenu: null).save(flush: true)
-				//def c = new Menu(title:"Home1", url:"",  active:false, subMenu: null).save(flush: true)
-				def d = new Menu(title:"Ministries", url:"#ministries",  active:false, subMenu: [a,b]).save(flush: true)
-			
+				def topMenu = new Menu(title:"Home", url:"#top",  active:true, subMenu: null).save(flush: true)
+				def eventsMenu = new Menu(title:"Program & Events", url:"#events",  active:false, subMenu: null).save(flush: true)
+				def bulletinMenu = new Menu(title:"Bulletin", url:"#bulletin",  active:false, subMenu: null).save(flush: true)
+				def quotesMenu = new SubMenu(title:"Quotes", url:"#quotes",  active:false, subMenu: null).save(flush: true)
+				def linksMenu = new SubMenu(title:"Recommended Links", url:"#recommendedLinks",  active:false, subMenu: null).save(flush: true)
+				def videosMenu = new SubMenu(title:"Recommended Videos", url:"#recommendedVideos",  active:false, subMenu: null).save(flush: true)
+				def ministriesMenu = new Menu(title:"Ministries", url:"#ministries",  active:false, subMenu: null).save(flush: true)
+				def resourcesMenu = new Menu(title:"Resources", url:"#",  active:false, subMenu: [linksMenu, videosMenu, quotesMenu]).save(flush: true)
+				def aboutMenu = new Menu(title:"About Savio YM", url:"#about",  active:false, subMenu: null).save(flush: true)
 				
+				
+			
 				new Quote(text: "There can be no virtue without obedience", author:"Don Bosco").save(flush:true)
 				new Quote(text: "All armies are useless unless assisted by God", author:"Don Bosco").save(flush:true)
 				new Quote(text: "Do good while you still have time", author:"Don Bosco").save(flush:true)
