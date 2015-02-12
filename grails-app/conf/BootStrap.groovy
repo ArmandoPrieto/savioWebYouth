@@ -62,7 +62,7 @@ transient springSecurityService
 				adminUser.save(failOnError: true)
 				UserRole.create(adminUser,adminRole, true)	
 				
-				def topMenu = new Menu(title:"Home", url:"#top",  active:true, subMenu: null).save(flush: true)
+					def topMenu = new Menu(title:"Home", url:"#top",  active:true, subMenu: null).save(flush: true)
 				def eventsMenu = new Menu(title:"Program & Events", url:"#events",  active:false, subMenu: null).save(flush: true)
 				def bulletinMenu = new Menu(title:"Bulletin", url:"#bulletin",  active:false, subMenu: null).save(flush: true)
 				def quotesMenu = new SubMenu(title:"Quotes", url:"#quotes",  active:false, subMenu: null).save(flush: true)
