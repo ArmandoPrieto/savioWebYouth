@@ -80,7 +80,7 @@ $('.owl-carousel').owlCarousel({
             items:4
         }
     }
-})
+});
 
 $('.owl-carousel2').owlCarousel({
     loop:true,
@@ -92,7 +92,7 @@ $('.owl-carousel2').owlCarousel({
             items:1
         }
     }
-})
+});
 
 $('.owl-carousel3').owlCarousel({
 	 loop:true,
@@ -116,7 +116,7 @@ $('.owl-carousel3').owlCarousel({
 	            items:8
 	        }
 	    }
-})
+});
 </script> 
 
 <!--============== IMAGE GALLERY =================--> 

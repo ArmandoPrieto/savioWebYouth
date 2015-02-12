@@ -1,4 +1,4 @@
-﻿<%@ page import="common.BannerType" %>
+﻿﻿﻿<%@ page import="common.BannerType" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,7 +130,7 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div class="owl-carousel">
+        <div class="${events.size()>1?'owl-carousel':''}">
          <g:each in="${events}">
    
   			<div class="el-block item">
@@ -149,7 +149,7 @@
   </div>
 </div>
 <!-- // END EVENT LISTS --> 
-
+ 
 <!-- BLOG LIST / LATEST SERMONS -->
 
 <div  id="bulletin" class="container has-margin-bottom">
@@ -176,7 +176,9 @@
      </div>
     <!--// col md 9--> 
     
-    <!--Latest Sermons-->
+    <!--Latest Sermons-->  <h4> </h4>
+            <p class="el-head"></p>
+            <span></span>
     <div id="recommendedLinks"class="col-md-3">
       <div class="well">
         <div class="section-title">
@@ -294,7 +296,7 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div class="owl-carousel2">
+        <div class="${quotes.size()>1?'owl-carousel2':''}">
         <g:each in="${quotes}">
           <div class="item">
             <blockquote class="blockquote-centered"> ${it.text} 
