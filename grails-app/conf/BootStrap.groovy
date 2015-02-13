@@ -6,7 +6,6 @@ import com.security.UserRole
 import saviowebpage.Quote
 
 
-
 class BootStrap {
 transient springSecurityService
 
@@ -14,7 +13,7 @@ transient springSecurityService
     
 		environments {
 				development{
-					
+				
 				//ROLES
 				def userRole = Role.findByAuthority('ROLE_USER') ?: new Role(authority: 'ROLE_USER').save(failOnError: true)
 				def adminRole = Role.findByAuthority('ROLE_ADMIN') ?: new Role(authority: 'ROLE_ADMIN').save(failOnError: true)
@@ -35,7 +34,10 @@ transient springSecurityService
 				def videosMenu = new SubMenu(title:"Recommended Videos", url:"#recommendedVideos",  active:false, subMenu: null).save(flush: true)
 				def ministriesMenu = new Menu(title:"Ministries", url:"#ministries",  active:false, subMenu: null).save(flush: true)
 				def resourcesMenu = new Menu(title:"Resources", url:"#",  active:false, subMenu: [linksMenu, videosMenu, quotesMenu]).save(flush: true)
-				def aboutMenu = new Menu(title:"About Savio YM", url:"#about",  active:false, subMenu: null).save(flush: true)
+				def adminMenu = new SubMenu(title:"Administration Panel", url:servletContext.getContextPath()+"/administration",  active:false, subMenu: null).save(flush: true)
+				def aboutMenu = new SubMenu(title:"About Savio YM", url:"#about",  active:false, subMenu: null).save(flush: true)
+				
+				def aboutAdminMenu = new Menu(title:"About Savio YM", url:"#",  active:false, subMenu: [aboutMenu,adminMenu]).save(flush: true)
 				
 				new Quote(text: "There can be no virtue without obedience", author:"Don Bosco").save(flush:true)
 				new Quote(text: "All armies are useless unless assisted by God", author:"Don Bosco").save(flush:true)
