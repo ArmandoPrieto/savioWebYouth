@@ -221,8 +221,8 @@ grails.plugin.springsecurity.authority.className = 'com.security.Role'
 grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.interceptUrlMap = [
 	'/':                  ['permitAll'],
-	'/index':             ['permitAll'],
-	'/index.gsp':         ['permitAll'],
+	'/index':             ['ROLE_ADMIN'],
+	'/index.gsp':         ['ROLE_ADMIN'],
 	'/assets/**':         ['permitAll'],
 	'/**/js/**':          ['permitAll'],
 	'/**/css/**':         ['permitAll'],
@@ -230,6 +230,14 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	'/**/favicon.ico':    ['permitAll'],
 	'/login/**':          ['permitAll'],
 	'/logout/**':         ['permitAll'],
-	'/administration/**': ['ROLE_ADMIN']
-	
+	'/administration/**': ['ROLE_ADMIN'],
+	'/role/**': ['ROLE_ADMIN'],
+	'/user/**': ['ROLE_ADMIN'],
+	'/userRole/**': ['ROLE_ADMIN'],
+	'/banner/**': ['ROLE_ADMIN'],
+	'/blog/**': ['ROLE_ADMIN'],
+	'/ministry/**': ['ROLE_ADMIN'],
+	'/newsletter/**': ['ROLE_ADMIN'],
+	'/quote/**': ['ROLE_ADMIN'],
+	'/resource/**': ['ROLE_ADMIN']
  ]
