@@ -89,9 +89,14 @@ environments {
     development {
 		grails.converters.json.pretty.print = true
         grails.logging.jul.usebridge = true
+		file.upload.directory = 'images/uploads'
+		fileTmp.upload.directory.tmp = 'images/uploads/tmp'
+   
     }
     production {
         grails.logging.jul.usebridge = false
+		file.upload.directory = System.getenv('OPENSHIFT_DATA_DIR') + '/uploads'
+		fileTmp.upload.directory.tmp = System.getenv('OPENSHIFT_DATA_DIR') + '/uploads/tmp'
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
@@ -203,8 +208,7 @@ jqueryValidationUi {
 quotesNumber = 3
 blogId = "3416050442440464469"
 appId = "AIzaSyDeoXli9PdQv2sOFjfAPbhKeMmKf9CG3wA"
-file.upload.directory = '/images/uploads'
-fileTmp.upload.directory.tmp = '/images/uploads/tmp'
+
 
 //grails.gorm.autoFlush = true
 //grails.gorm.failOnError=true

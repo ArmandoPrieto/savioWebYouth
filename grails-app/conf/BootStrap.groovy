@@ -64,7 +64,7 @@ transient springSecurityService
 				adminUser.save(failOnError: true)
 				UserRole.create(adminUser,adminRole, true)	
 				
-					def topMenu = new Menu(title:"Home", url:"#top",  active:true, subMenu: null).save(flush: true)
+				def topMenu = new Menu(title:"Home", url:"#top",  active:true, subMenu: null).save(flush: true)
 				def eventsMenu = new Menu(title:"Program & Events", url:"#events",  active:false, subMenu: null).save(flush: true)
 				def bulletinMenu = new Menu(title:"Bulletin", url:"#bulletin",  active:false, subMenu: null).save(flush: true)
 				def quotesMenu = new SubMenu(title:"Quotes", url:"#quotes",  active:false, subMenu: null).save(flush: true)
@@ -72,8 +72,11 @@ transient springSecurityService
 				def videosMenu = new SubMenu(title:"Recommended Videos", url:"#recommendedVideos",  active:false, subMenu: null).save(flush: true)
 				def ministriesMenu = new Menu(title:"Ministries", url:"#ministries",  active:false, subMenu: null).save(flush: true)
 				def resourcesMenu = new Menu(title:"Resources", url:"#",  active:false, subMenu: [linksMenu, videosMenu, quotesMenu]).save(flush: true)
-				def aboutMenu = new Menu(title:"About Savio YM", url:"#about",  active:false, subMenu: null).save(flush: true)
+				def adminMenu = new SubMenu(title:"Administration Panel", url:servletContext.getContextPath()+"/administration",  active:false, subMenu: null).save(flush: true)
+				def aboutMenu = new SubMenu(title:"About Savio YM", url:"#about",  active:false, subMenu: null).save(flush: true)
 				
+				def aboutAdminMenu = new Menu(title:"About Savio YM", url:"#",  active:false, subMenu: [aboutMenu,adminMenu]).save(flush: true)
+			
 				
 			
 				new Quote(text: "There can be no virtue without obedience", author:"Don Bosco").save(flush:true)

@@ -194,7 +194,7 @@ class ImageController {
 				*/
 				
 				render([status:"success",
-					url: g.resource(dir: 'images/uploads/tmp', file: newFilename, absolute: true),
+					url: g.resource(dir: storageDirectoryTmp, file: newFilename, absolute: true),
 					width:width,
 					height:height] as grails.converters.JSON)
 				
