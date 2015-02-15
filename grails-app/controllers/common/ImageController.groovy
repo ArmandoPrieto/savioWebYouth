@@ -12,14 +12,35 @@ import org.imgscalr.Scalr
 import javax.imageio.ImageIO
 import org.imgscalr.Scalr.Method
 import org.apache.commons.io.FileUtils
+import grails.util.Environment
 
 class ImageController {
 	
+	String storageDirectory
+	String storageDirectoryTmp 
 	
+	def beforeInterceptor = {
+		
+		if (Environment.current == Environment.DEVELOPMENT) {
+			// insert Development environment specific code here
+			storageDirectory =servletContext.getRealPath(grailsApplication.config.file.upload.directory)
+			storageDirectoryTmp = servletContext.getRealPath(grailsApplication.config.fileTmp.upload.directory.tmp)
+		} else
+		if (Environment.current == Environment.TEST) {
+			// insert Test environment specific code here
+		} else
+		if (Environment.current == Environment.PRODUCTION) {
+			// insert Production environment specific code here
+			storageDirectory = System.getenv('OPENSHIFT_DATA_DIR') + '/uploads'
+			storageDirectoryTmp = System.getenv('OPENSHIFT_DATA_DIR') + '/uploads/tmp'
+		
+		}
+	
+	
+	
+	}
 	def crop(){
-		String storageDirectory = servletContext.getRealPath(grailsApplication.config.file.upload.directory)
-		String storageDirectoryTmp = servletContext.getRealPath(grailsApplication.config.fileTmp.upload.directory.tmp)
-		if (request instanceof MultipartHttpServletRequest){
+			if (request instanceof MultipartHttpServletRequest){
 			
 			for(filename in request.getFileNames()){
 				MultipartFile file = request.getFile(filename)
@@ -84,8 +105,9 @@ class ImageController {
 				"message": "The image is smaller than the frame"] as grails.converters.JSON)
 		}else{
 		
-		def token = params.imgUrl.split("\\/");
+		def token = params.imgUrl.split("imageName=");
 		String imageId =token[token.size()-1]
+		
 		def nameAndExtension = imageId.split("\\.")
 		String extension = nameAndExtension[nameAndExtension.size()-1]
 		File newFile = new File("$storageDirectoryTmp/$imageId")
@@ -133,15 +155,14 @@ class ImageController {
 		}
 	
 	protected void deleteTmp(){
-	String storageDirectoryTmp = servletContext.getRealPath(grailsApplication.config.fileTmp.upload.directory.tmp)
 	def mainDir = new File(storageDirectoryTmp)
 	FileUtils.cleanDirectory(mainDir); 
 	
 	
 	}
 	
-			def upload() {
-		
+		def upload() {
+				
 		switch(request.method){
 			case "GET":
 			
@@ -171,9 +192,7 @@ class ImageController {
 						String newFilename = newFilenameBase + originalFileExtension
 						
 						
-						String storageDirectory = servletContext.getRealPath(grailsApplication.config.fileTmp.upload.directory.tmp)
-						
-						File newFile = new File("$storageDirectory/$newFilename")
+						File newFile = new File("$storageDirectoryTmp/$newFilename")
 						file.transferTo(newFile)
 						BufferedImage original = ImageIO.read(newFile);
 						
@@ -181,7 +200,7 @@ class ImageController {
 						int height         = original.getHeight();
 						
 						//BufferedImage thumbnail = Scalr.resize(ImageIO.read(newFile), 290);
-						//String thumbnailFilename = newFilenameBase + '-thumbnail.png'
+						//String thumbnhttp://mrhaki.blogspot.com/2013/09/grails-goodness-render-binary-output.htmlailFilename = newFilenameBase + '-thumbnail.png'
 						//File thumbnailFile = new File("$storageDirectory/$thumbnailFilename")
 						//ImageIO.write(thumbnail, 'png', thumbnailFile)
 
@@ -194,7 +213,7 @@ class ImageController {
 				*/
 				
 				render([status:"success",
-					url: g.resource(dir: storageDirectoryTmp, file: newFilename, absolute: true),
+					url: g.createLink(cotroller:'image', action:'pictureTmp', params:['imageName': newFilename], absolute: true),
 					width:width,
 					height:height] as grails.converters.JSON)
 				
@@ -219,9 +238,16 @@ class ImageController {
 		}
 		return null
 	}
-
+		def pictureTmp(){
+			def pic = params.imageName
+			
+			File picFile = new File("$storageDirectoryTmp/${pic}")
+			
+			response.contentType = 'image/jpeg'
+			response.outputStream << new FileInputStream(picFile)
+			response.outputStream.flush()
+		}
 	def picture(){
-		String storageDirectory = servletContext.getRealPath(grailsApplication.config.file.upload.directory)
 		def pic = Image.get(params.id)
 		
 		File picFile = new File("$storageDirectory/crop-${pic.imageId}")
@@ -232,7 +258,6 @@ class ImageController {
 	}
 
 	def thumbnail(){
-		String storageDirectory = servletContext.getRealPath(grailsApplication.config.file.upload.directory)
 		def pic = Image.get(params.id)
 		File picFile = new File("$storageDirectory/thumbails/thumbail-${pic.imageId}")
 		response.contentType = 'image/png'
@@ -241,7 +266,6 @@ class ImageController {
 	}
 
 	def delete(){
-		String storageDirectory = servletContext.getRealPath(grailsApplication.config.file.upload.directory)
 		def pic = Image.get(params.id)
 		File picFile = new File("$storageDirectory/${pic.imageId}")
 		picFile.delete()

@@ -95,9 +95,8 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-		file.upload.directory = System.getenv('OPENSHIFT_DATA_DIR') + '/uploads'
-		fileTmp.upload.directory.tmp = System.getenv('OPENSHIFT_DATA_DIR') + '/uploads/tmp'
-        // TODO: grails.serverURL = "http://www.changeme.com"
+		
+		    // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
 
