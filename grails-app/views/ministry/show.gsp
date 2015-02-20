@@ -1,11 +1,20 @@
 <%@ page import="saviowebpage.Ministry" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
 <!-- Meta, title, CSS, favicons, etc. -->
  		<meta name="layout" content="savioLayout"/>
 		<g:set var="entityName" value="${message(code: 'ministry.label', default: 'Ministry')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
+
+<meta property="og:title" content="${ministryInstance?.name}" />
+<meta property="og:url" content="${createLink(controller:'ministry',action:'show',id:ministryInstance.id,absolute: true)}" />
+<meta property="og:site_name" content="http://sym.saintdominicsavio.org" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="${createLink(controller: 'image', action: 'picture',id: ministryInstance.imageId)}" />
+<meta property="og:description" content="St. Dominic Savio Youth Ministry" />
+<meta property="fb:app_id" content="1524105587863612" />
+
 </head>
 <body>
    <g:render template="/common/goBack" model="['fragment':'ministries']"/>
@@ -24,21 +33,25 @@
   <div class="row">
  
     <div class="col-md-9 has-margin-bottom"> <img src="${createLink(controller: 'image', action: 'picture',id: ministryInstance.imageId)}" class="img-responsive has-margin-xs-bottom" alt="ministry">
-      <p>   </p>
-      <div class="g-plusone" data-size="medium" data-href="http://localhost:8080/savioWebPage/ministry/show/1"></div>
- <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="300" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
-  <a href="https://twitter.com/share" class="twitter-share-button" data-via="savioym" data-size="medium" data-related="savioym" data-hashtags="SavioWebSite">Tweet</a>
-  
+       
+    <div class="social-buttons"> 
+	    <div class="fb-share-button" data-href="${createLink(controller:'ministry',action:'show',id:ministryInstance.id,absolute: true)}" data-layout="button_count" style="vertical-align:top;zoom:1;*display:inline"></div>
+	 	<a href="https://twitter.com/share" class="twitter-share-button" data-url="${createLink(controller:'ministry',action:'show',id:ministryInstance.id,absolute: true)}" data-text="${ministryInstance?.name}" data-via="savioym" data-related="savioym" data-hashtags="SavioWebSite">Tweet</a>
+	<div class="g-plusone" data-size="medium" data-href="${createLink(controller:'ministry',action:'show',id:ministryInstance.id,absolute: true)}"></div>
+   	 </div>
       <p>${raw(ministryInstance.description)}</p>
-    </div>
-    <!--// col md 9--> 
     
-    <!--Latest Sermons-->
+    <div class="social-buttons"> 
+	    <div class="fb-share-button" data-href="${createLink(controller:'ministry',action:'show',id:ministryInstance.id,absolute: true)}" data-layout="button_count" style="vertical-align:top;zoom:1;*display:inline"></div>
+	 	<a href="https://twitter.com/share" class="twitter-share-button" data-url="${createLink(controller:'ministry',action:'show',id:ministryInstance.id,absolute: true)}" data-text="${ministryInstance?.name}" data-via="savioym" data-related="savioym" data-hashtags="SavioWebSite">Tweet</a>
+   
+	<div class="g-plusone" data-size="medium" data-href="${createLink(controller:'ministry',action:'show',id:ministryInstance.id,absolute: true)}"></div>
+		</div>
+  
+	</div>
+  
     <div class="col-md-3">
-    <div class="g-plusone" data-size="medium" data-href="http://localhost:8080/savioWebPage/ministry/show/1"></div>
-  <a href="https://twitter.com/share" class="twitter-share-button" data-via="savioym" data-size="medium" data-related="savioym" data-hashtags="SavioWebSite">Tweet</a>
-   <div class="fb-like" data-href="http://localhost:8080/savioWebPage/ministry/show/1" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
-     <%-- <div class="event-right-block has-border has-margin-bottom">
+      <%-- <div class="event-right-block has-border has-margin-bottom">
         <div class="section-title highlight-bg has-padding-xs-top has-padding-bottom">
           <h4> UPCOMING EVENTS </h4>
         </div>
@@ -92,8 +105,8 @@
 
 
 <!-- Inserta esta etiqueta en la sección "head" o justo antes de la etiqueta "body" de cierre. -->
-<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

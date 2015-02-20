@@ -12,6 +12,7 @@ import org.joda.time.LocalDateTime
 
 import groovy.json.*
 
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 
 import org.springframework.context.i18n.LocaleContextHolder as LCH
@@ -32,8 +33,17 @@ class GoogleCalendarReaderService {
 	def getEvents(){
 		
 		RestBuilder rest = new RestBuilder()
-		String service = "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events?key={key}"
-		def urlVariables = [calendarId: calendarId, key:appId]
+		String service = "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events?key={key}&timeMin={timeMin}&orderBy={orderBy}&singleEvents={singleEvents}"
+		
+		Calendar now = Calendar.getInstance();
+		now.set(Calendar.HOUR, 0);
+		now.set(Calendar.MINUTE, 0);
+		now.set(Calendar.SECOND, 0);
+		
+		DateFormat df1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+		String dateAsISOString = df1.format(now.getTime());
+		println(dateAsISOString)
+		def urlVariables = [calendarId: calendarId, key:appId, timeMin:dateAsISOString,orderBy:'startTime',singleEvents:'true']
 		def event = [];
 		try{
 			def resp = rest.get(service,urlVariables)

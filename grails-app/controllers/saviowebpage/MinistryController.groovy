@@ -26,7 +26,7 @@ class MinistryController {
 			}
 			respond ministryInstance, model:[ministries: results]
 		}else{
-		redirect(controller:"main",action:"main_page")
+		redirect(controller:"ministry",action:"show1",id:ministryInstance.id)
 		}
 		 
     }
@@ -72,7 +72,7 @@ class MinistryController {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'ministry.label', default: 'Ministry'), ministryInstance.id])
                 redirect ministryInstance
             }
-            '*' { respond ministryInstance, [status: CREATED] }
+            '*' { respond ministryInstance, view:'show1',[status: CREATED] }
         }
     }
 

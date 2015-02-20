@@ -53,6 +53,8 @@ transient springSecurityService
 				println("Starting")
 			}
 				production{
+					
+				try{
 					//ROLES
 				def userRole = Role.findByAuthority('ROLE_USER') ?: new Role(authority: 'ROLE_USER').save(failOnError: true)
 				def adminRole = Role.findByAuthority('ROLE_ADMIN') ?: new Role(authority: 'ROLE_ADMIN').save(failOnError: true)
@@ -93,6 +95,10 @@ transient springSecurityService
 					Locale.setDefault(Locale.ENGLISH);
 					println("Starting APP")
 					
+				}catch(Exception e){
+					println("Starting APP with Exception at Boostrap")
+				}
+				
 				}
 		}
 		

@@ -125,7 +125,7 @@ class GoogleBloggerReaderService {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date parseDate = null
 		
-			
+			post.setPostId(postId.toLong())
 			post.setContent(resp.json.content)
 			post.setTitle(resp.json.title)
 			

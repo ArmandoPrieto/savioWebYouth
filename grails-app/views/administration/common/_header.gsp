@@ -7,7 +7,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>Savio Youth Ministry</b></a>
+           <g:link controller="administration" class="logo"><b>Savio Youth Ministry</b></g:link>
             <!--logo end-->
       <%--   <g:render template="/administration/common/notifications" /> --%>
             <div class="top-menu">

@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
 
 
 <!-- Meta, title, CSS, favicons, etc. -->
 
 <meta name="layout" content="savioLayout"/>
-
+<meta property="og:title" content="${postInstance.title}" />
+<meta property="og:url" content="${createLink(controller:'ministry',action:'show',id:postInstance.postId,absolute: true)}" />
+<meta property="og:site_name" content="http://sym.saintdominicsavio.org" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="${resource(dir: 'images', file: 'church-logo.png')}" />
+<meta property="og:description" content="${postInstance.shortContent}" />
+<meta property="fb:app_id" content="1524105587863612" />
 </head>
 <body>
 
@@ -27,8 +33,34 @@
   <div class="row">
     <div class="col-md-9 has-margin-bottom">
       <article class="blog-content">
-       ${raw(postInstance.content)}
-      </article>
+					<div class="social-buttons">
+						<div class="fb-share-button"
+							data-href="${createLink(controller:'blog',action:'show',id:postInstance.postId,absolute: true)}"
+							data-layout="button_count"
+							style="vertical-align: top; zoom: 1; *display: inline"></div>
+						<a href="https://twitter.com/share" class="twitter-share-button"
+							data-url="${createLink(controller:'blog',action:'show',id:postInstance.postId,absolute: true)}"
+							data-text="${postInstance.title}" data-via="savioym" data-related="savioym"
+							data-hashtags="SavioWebSite">Tweet</a>
+						<div class="g-plusone" data-size="medium"
+							data-href="${createLink(controller:'blog',action:'show',id:postInstance.postId,absolute: true)}"></div>
+					</div>
+
+					${raw(postInstance.content)}
+					<div class="social-buttons">
+						<div class="fb-share-button"
+							data-href="${createLink(controller:'blog',action:'show',id:postInstance.postId,absolute: true)}"
+							data-layout="button_count"
+							style="vertical-align: top; zoom: 1; *display: inline"></div>
+						<a href="https://twitter.com/share" class="twitter-share-button"
+							data-url="${createLink(controller:'blog',action:'show',id:postInstance.postId,absolute: true)}"
+							data-text="${postInstance.title}" data-via="savioym" data-related="savioym"
+							data-hashtags="SavioWebSite">Tweet</a>
+						<div class="g-plusone" data-size="medium"
+							data-href="${createLink(controller:'blog',action:'show',id:postInstance.postId,absolute: true)}"></div>
+					</div>
+
+				</article>
       <div class="tag-cloud has-margin-bottom"> 
       	<g:if test="${postInstance.labels}"> <h4>Labels</h4></g:if>
       	<g:each in="${postInstance.labels}"><a href="#">${it}</a></g:each>
@@ -129,5 +161,17 @@
 
 <g:render template="/common/bottom" model="${newsletterInstance}"/>
 
+<!-- Inserta esta etiqueta en la sección "head" o justo antes de la etiqueta "body" de cierre. -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1524105587863612&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>

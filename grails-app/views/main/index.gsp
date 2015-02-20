@@ -292,7 +292,7 @@
 <div id="quotes" class="highlight-bg has-margin-bottom">
   <div class="container event-list">
     <div class="section-title">
-      <h4> BIBLE QUOTES </h4>
+      <h4> QUOTES </h4>
     </div>
     <div class="row">
       <div class="col-md-12">

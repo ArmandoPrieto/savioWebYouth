@@ -5,8 +5,8 @@
 <meta name="layout" content="savioLayout"/>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Our Church is a premium HTML5 Church Website Template with Responsive design. Church Template includes many pages like Bulletin, Programs, events, sermons, ministries, working church contact form etc..">
-<meta name="keywords" content="Church, Website, Template, Bulletin, Programs, Events, Themeforest, Premium, Charity, Non Profit ">
+<meta name="description" content="St. Dominic Savio Church">
+<meta name="keywords" content="Church, Salesian, Don Bosco, Dominic Savio, Los Angeles, Bosco, Non Profit ">
 <meta name="author" content="Armando Prieto">
 <title>Savio Youth Ministry</title>
 
@@ -16,7 +16,21 @@
  <link rel="stylesheet" href="${resource(dir: 'css', file: 'fancybox.css')}" />
 
   <link rel="stylesheet" href="${resource(dir: 'css', file: 'ekko-lightbox.css')}" />
- 
+  <!--============== Social network buttons =================--> 
+	 <style>
+	 .social-buttons{
+	 margin-top:10px;
+	 margin-bottom:10px;
+	 
+	 }
+	 			#twitter-widget-0 { 
+			      width: 75px !important; 
+			    }
+			    #twitter-widget-1 { 
+			      width: 75px !important; 
+			    }
+	 </style>
+	 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
@@ -204,6 +218,10 @@ $(document).ready(function() {
 <!--============== Boostrap Light Box =================--> 
 <script>      
 $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) { event.preventDefault(); $(this).ekkoLightbox(); });       
-</script>      
+</script> 
+
+
+
+
    </body>
 </html>
