@@ -165,6 +165,11 @@
 	
 	<script type="application/javascript">
         $(document).ready(function () {
+
+        	  $('img').load(function() {
+        	        $(this).fadeIn('slow');
+        	    });
+      	    
             $("#date-popover").popover({html: true, trigger: "manual"});
             $("#date-popover").hide();
             $("#date-popover").click(function (e) {

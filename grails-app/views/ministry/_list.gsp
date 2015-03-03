@@ -8,7 +8,7 @@
 		 <img class="img-responsive" src="${createLink(controller: 'image', action: 'thumbnail',id: it.imageId, absolute: true)}" alt="catholic church">
 		<%--  </div>--%>
 		    <h5>${it.name.toUpperCase()}</h5>
-		    <p>${it.subTitle}</p>
+		    <p>${it.cortarCadenaPorPuntos(it.description,300).toString()}</p>
 		    <p><g:link controller="ministry" action="show" id="${it.id}" role="button">Read more →</g:link></p>
 		</div>
 		<g:set var="counter" value="${counter + 1}" />

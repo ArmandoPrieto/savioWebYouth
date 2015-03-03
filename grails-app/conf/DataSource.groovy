@@ -51,7 +51,23 @@ environments {
 				username = "adminE2WkTDM"
 				password = "ifiRrKJ5Naa-"
 			
-		}
+				properties {
+					maxActive = 50
+					maxIdle = 25
+					minIdle = 5
+					initialSize = 5
+					minEvictableIdleTimeMillis = 1800000
+					timeBetweenEvictionRunsMillis = 1800000
+					maxWait = 10000
+					numTestsPerEvictionRun=3
+					//test the connection while its idle, before borrow and return it
+					testOnBorrow=true
+					testWhileIdle=true
+					testOnReturn=true
+					validationQuery="SELECT 1"
+				 }
+				
+			}
 	}
 	
    /* production {

@@ -1,6 +1,8 @@
 package saviowebpage
 import general.demographic.Person
 import general.demographic.Group
+import org.jsoup.Jsoup
+
 
 class Ministry extends Group{
 	
@@ -38,4 +40,25 @@ class Ministry extends Group{
 		//imageUrl type: "text"
 		
 	 }
+	public StringBuffer cortarCadenaPorPuntos(String cadena, int maxSize) {
+		cadena = Jsoup.parse(cadena).text();
+		
+		String [] arreglo =  cadena.split("\\.");
+	   
+		StringBuffer bufferAux = new StringBuffer("")
+		
+		for(int i = 0; i < arreglo.length; i++){
+		   
+			if(bufferAux.length() + arreglo[i].length() < maxSize){
+				
+			bufferAux.append(arreglo[i])
+			bufferAux.append(".")
+			}else{
+				break
+			}
+	   }
+	   return bufferAux
+	   
+	   }
+	
 }
