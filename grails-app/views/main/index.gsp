@@ -157,7 +157,7 @@
   <div class="row">
     <div class="col-md-9 has-margin-bottom">
       <div class="section-title left-align-desktop">
-        <h4> LATEST BULLETIN </h4>
+        <h4> LATEST POSTS </h4>
       </div>
       <!--Blog list-->
        <g:each in="${posts}">

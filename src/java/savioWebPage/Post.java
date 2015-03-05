@@ -12,7 +12,14 @@ public class Post {
 	Author author;
 	DateTime published;
 	List<String> labels;
+	String nextPageToken;
 	
+	public String getNextPageToken() {
+		return nextPageToken;
+	}
+	public void setNextPageToken(String nextPageToken) {
+		this.nextPageToken = nextPageToken;
+	}
 	public Long getPostId() {
 		return postId;
 	}
