@@ -1,6 +1,7 @@
 package saviowebpage
 import administration.Menu
 import grails.util.Holders
+import common.PostListResponse
 import common.ResourceType
 
 class MainController {
@@ -10,7 +11,7 @@ class MainController {
 	def grailsApplication
     def main_page() {
 		
-		def postList = googleBloggerReaderService.getPosts()
+		PostListResponse postList = googleBloggerReaderService.getPosts(3)
 		
 		
 		def eventList = googleCalendarReaderService.getEvents()
@@ -35,7 +36,7 @@ class MainController {
 		
 		render(view: "index", model:[menus: Menu.list(),
 			 events: eventList, 
-			 posts: postList,
+			 posts: postList.getPostList(),
 			 ministries: ministries,
 			 newsletterInstance: new Newsletter(),
 			 quotes: quoteList,

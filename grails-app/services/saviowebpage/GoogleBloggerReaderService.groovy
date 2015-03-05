@@ -1,5 +1,6 @@
 package saviowebpage
 
+import common.PostListResponse
 import grails.converters.JSON
 import grails.plugins.rest.client.RestBuilder
 import grails.transaction.Transactional
@@ -8,9 +9,11 @@ import java.text.SimpleDateFormat
 import org.jsoup.nodes.Document
 
 
+
 import savioWebPage.Author
 import savioWebPage.Coment
 import savioWebPage.Post
+
 
 import org.jsoup.Jsoup;
 import org.jsoup.helper.Validate;
@@ -47,16 +50,50 @@ class GoogleBloggerReaderService {
 		return bufferAux
 		
 		}
-	def getPosts(){
+	int getBlogTotalItems(){
+		int totalBlogItems = 0
+		RestBuilder rest = new RestBuilder()
+		try{
+			String blogService = "https://www.googleapis.com/blogger/v3/blogs/{blogId}?key={key}"
+			def urlVariable = [blogId: grailsApplication.config.blogId,key: grailsApplication.config.appId]
+			def respBlog = rest.get(blogService,urlVariable)
+			totalBlogItems = respBlog.json.posts.totalItems
+		}catch(Exception e){
+		e.printStackTrace()
+		}
+		return totalBlogItems
+		
+	}
+	
+	PostListResponse getPosts(int maxResults, String pageToken = null){
 		
 		def postList = [];
 		DateTime published = null
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date parseDate = null
 		RestBuilder rest = new RestBuilder()
-		String service = "https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts?key={key}&fetchImages={fetchImages}"
-		def urlVariables = [blogId: grailsApplication.config.blogId, key: grailsApplication.config.appId,fetchImages:'true']
 		try{
+		
+		
+		String service
+		def urlVariables
+		if(pageToken!= null){
+			service = "https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts?key={key}&fetchImages={fetchImages}&maxResults={maxResults}&pageToken={pageToken}"
+		    urlVariables = [blogId: grailsApplication.config.blogId,
+			key: grailsApplication.config.appId,
+			fetchImages:'true',
+			maxResults:maxResults,
+			pageToken:pageToken]
+			
+		}else{
+		service = "https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts?key={key}&fetchImages={fetchImages}&maxResults={maxResults}"
+		
+			urlVariables = [blogId: grailsApplication.config.blogId,
+			key: grailsApplication.config.appId,
+			fetchImages:'true',
+			maxResults:maxResults]
+		}
+		    
 		def resp = rest.get(service,urlVariables)
 		
 		Post post = null
@@ -102,11 +139,14 @@ class GoogleBloggerReaderService {
 		json.prettyPrint = true
 		
 		//println(json)
-		return postList
+		PostListResponse postListResponse = new PostListResponse()
+		postListResponse.setPostList(postList)
+		postListResponse.setNextPageToken(resp.json.nextPageToken)
+		return postListResponse
 		
 		}catch(Exception e ){
 		e.printStackTrace()
-		return postList
+		return null
 		}
 		
 		

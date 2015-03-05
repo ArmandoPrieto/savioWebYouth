@@ -5,65 +5,16 @@
 <meta name="layout" content="savioLayout"/>
 </head>
 <body>
-<!-- Navigation Bar Starts -->
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="index.html"> <img src="images/church-logo.png" alt="church logo" class="img-responsive"></a> </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">MINISTRY <span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-menu-left" role="menu">
-            <li><a href="ministry.html">Childrens Ministry</a></li>
-            <li><a href="ministry.html">Students Ministry</a></li>
-            <li><a href="ministry.html">Groups</a></li>
-          </ul>
-        </li>
-        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">SERMONS <span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-menu-left" role="menu">
-            <li><a href="sermons.html">Christ-Occupied</a></li>
-            <li><a href="sermons.html">God's Love</a></li>
-            <li><a href="sermons.html">Faithfulness</a></li>
-            <li><a href="sermons.html">Praise Him</a></li>
-          </ul>
-        </li>
-        <li class="dropdown active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-menu-left" role="menu">
-            <li><a href="image-gallery.html">Image Gallery</a></li>
-            <li><a href="video-gallery.html">Video Gallery</a></li>
-            <li><a href="blog.html">Blog list</a></li>
-            <li><a href="blog-single.html">Blog Single</a></li>
-            <li><a href="events-programs.html">Events &amp; Programs</a></li>
-            <li><a href="event-single.html">Event Single</a></li>
-            <li><a href="event-calendar.html">Event Calendar</a></li>
-            <li><a href="charity-donation.html">Charity &amp; Donations</a></li>
-            <li class="divider"></li>
-            <li class="dropdown-header">OTHER PAGES</li>
-            <li><a href="prayers.html">Prayers</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="shortcodes.html">Shortcodes</a></li>
-            <li><a href="full-width.html">Full Width</a></li>
-            <li><a href="left-sidebar.html">Left Sidebar</a></li>
-            <li><a href="http://themeforest.net/user/surjithctly/portfolio">Buy this Template</a></li>
-          </ul>
-        </li>
-        <li><a href="contact.html">CONTACT</a></li>
-      </ul>
-    </div>
-    <!--/.nav-collapse --> 
-    
-  </div>
-</div>
-<!--// Navbar Ends--> 
+
+<!--SUBPAGE HEAD-->
+<g:render template="/common/goBack" model="['fragment':'bulletin']"/>
+
 
 <!--SUBPAGE HEAD-->
 
 <div class="subpage-head has-margin-bottom">
   <div class="container">
-    <h3>Our Blog</h3>
+    <h3>Our Savio Blog</h3>
     <p class="lead">Articles and latest bulletins related to our youth ministry</p>
   </div>
 </div>
@@ -77,7 +28,7 @@
       <!--Blog list-->
       
       <!--Blog list-->
-       <g:each in="${posts}">
+       <g:each in="${posts.getPostList()}">
 	        <div class="row has-margin-bottom">
 	        <div class="col-md-4 col-sm-4" style='height:150px;overflow:hidden'>  
 	        	<img class="img-responsive center-block" src="${it.image}" alt="bulletin blog"> 
@@ -94,18 +45,50 @@
       
       <div class="text-center center-block">
         <ul class="pagination">
-          <li class="disabled"><a href="#">«</a></li>
-          <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">2</a></li>
+           <g:if test="${postListPagination.size()==0}">
+          		<li class="disabled"><a href="#">«</a></li>
+          		<li class="active"><g:link controller="blog" action="index">1 <span class="sr-only">(current)</span></g:link></li>
+          		<g:if test="${posts.getNextPageToken() != null}">
+	          		 <li><g:link controller="blog" action="index" params="[nextPageToken: posts.getNextPageToken(), item:1]">» </g:link> </li>
+	          	</g:if>
+          </g:if>
+        
+          <g:if test="${postListPagination.size()>=1}">
+           
+          		<li><g:link controller="blog" action="index">«</g:link></li>
+          		<li><g:link controller="blog" action="index">1 </g:link></li>
+        
+          
+          <g:each status="i" var="it" in="${postListPagination}">
+         <g:set var="count" value="${i+2}" />
+	        
+	          <g:if test="${i+1==postListPagination.size()}">
+	          	<li class="active"><g:link controller="blog" action="index" params="[nextPageToken: postListPagination[i],postListPagination: postListPagination, item:count]">${count} <span class="sr-only">(current)</span></g:link></li>
+	          	<g:if test="${posts.getNextPageToken() != null}">
+	          		 <li><g:link controller="blog" action="index" params="[nextPageToken: posts.getNextPageToken(),postListPagination: postListPagination, item:count]">» </g:link> </li>
+	          	</g:if>
+	          	
+	          </g:if>
+	          <g:else>
+	           <li><g:link controller="blog" action="index" params="[nextPageToken: postListPagination[i],postListPagination: postListPagination,item:count]">${count} </g:link> </li>
+	          
+	          </g:else>
+	          
+	        
+	          
+          </g:each>
+            </g:if>
+          <%--<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>--%>
+          <%--<li><a href="#">2</a></li>
           <li><a href="#">3</a></li>
           <li><a href="#">4</a></li>
           <li><a href="#">5</a></li>
-          <li><a href="#">»</a></li>
+           --%>
         </ul>
       </div>
     </div>
     <!--// col md 9--> 
-    
+    <%--
     <!--Blog Sidebar-->
     <div class="col-md-3">
       <div class="blog-search has-margin-xs-bottom">
@@ -119,7 +102,7 @@
         <h4>About this blog</h4>
         <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
       </div>
-      <%-- 
+      
       <div class="vertical-links has-margin-xs-bottom">
         <h4>Blog archives</h4>
         <ul class="list-unstyled">
@@ -132,8 +115,9 @@
         </ul>
       </div>
       <div class="tag-cloud has-margin-bottom"> <a href="#">catholic</a> <a href="#">bulletin</a> <a href="#">programs</a> <a href="#">events</a> <a href="#">church</a> <a href="#">charity</a> <a href="#">website</a> <a href="#">template</a> <a href="#">non-profit</a> <a href="#">belief</a> <a href="#">ministry</a> <a href="#">sermon</a> <a href="#">nature</a> </div>
-    --%>
+    
     </div>
+    --%>
   </div>
 </div>
 

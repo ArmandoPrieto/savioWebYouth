@@ -1,16 +1,50 @@
 package saviowebpage
 
 import savioWebPage.Post
+import common.PostListResponse
 import administration.Menu
 class BlogController {
 
 	def GoogleBloggerReaderService
 	
     def index() { 
-		def postList = googleBloggerReaderService.getPosts()
+	try{
+		int maxResults = 5
+		PostListResponse postList = googleBloggerReaderService.getPosts(params.maxResults?:maxResults, params.nextPageToken?:null)
+		int blogTotalItems = googleBloggerReaderService.getBlogTotalItems()
+		List postListPagination = []
+		List<String> aux=[]
+		int item = params.item?Integer.parseInt(params.item):-1
 		
-		render(view: "index",model:[menus: Menu.list(), posts:postList, newsletterInstance: new Newsletter()])
+		if(item > 0){
+			
+			if(params?.postListPagination!=null){
+				aux = params.list('postListPagination')
+				
+				if(aux.size()>=item){
+				postListPagination.addAll(aux[0..item-2])
+				}else{
+				postListPagination.addAll(aux)
+				}
+			
+				
+			
+			}
+			if(maxResults*item<blogTotalItems){
+			postListPagination.add(params?.nextPageToken)
+			}
+			postListPagination = postListPagination.unique()
+			
+		}
 		
+	
+		
+		render(view: "index",model:[menus: Menu.list(), posts:postList,postListPagination:postListPagination, newsletterInstance: new Newsletter()])
+	}catch(Exception e){
+	println("Error")
+	redirect(view:"error")
+	}
+	
 	}
 	
 	def show() {
