@@ -10,7 +10,7 @@
 		</g:link>
 		<%--  </div>--%>
 		    <h5>${it.name.toUpperCase()}</h5>
-		    <p>${it.cortarCadenaPorPuntos(it.description,100).toString()}</p>
+		    <p>${it.cortarCadenaPorPuntos(it.description,200).toString()}</p>
 		    <p><g:link controller="ministry" action="show" id="${it.id}" role="button">Read more →</g:link></p>
 		</div>
 		<g:set var="counter" value="${counter + 1}" />
