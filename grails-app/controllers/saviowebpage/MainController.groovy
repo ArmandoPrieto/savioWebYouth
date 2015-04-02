@@ -21,7 +21,7 @@ class MainController {
 		def c = Ministry.createCriteria()
 		def ministries = c.list {
 			eq("isPublished", true)
-			maxResults(6)
+			//maxResults(6)
 		}
 		def c1 = Resource.createCriteria()
 		def links = c1.list {
