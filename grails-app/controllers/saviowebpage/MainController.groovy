@@ -21,8 +21,7 @@ class MainController {
 		def c = Ministry.createCriteria()
 	/*	def ministries = c.list {
 			eq("isPublished", true)
-			sqlRestriction "from Ministry order by rand()"
-			//maxResults(6)
+				//maxResults(6)
 		}*/
 		def ministries = Ministry.getRandomList(true)
 		def c1 = Resource.createCriteria()
