@@ -9,7 +9,7 @@ class MainController {
 	def googleCalendarReaderService
 	def GoogleBloggerReaderService
 	def grailsApplication
-    def main_page() {
+	def main_page() {
 		
 		PostListResponse postList = googleBloggerReaderService.getPosts(3)
 		
@@ -38,7 +38,7 @@ class MainController {
 		
 		
 		render(view: "index", model:[menus: Menu.list(),
-			 events: eventList, 
+			 events: eventList,
 			 posts: postList.getPostList(),
 			 ministries: ministries,
 			 newsletterInstance: new Newsletter(),
