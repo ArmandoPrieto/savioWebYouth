@@ -1,6 +1,9 @@
 package saviowebpage
+import java.util.List;
+
 import general.demographic.Person
 import general.demographic.Group
+
 import org.jsoup.Jsoup
 
 
@@ -40,6 +43,20 @@ class Ministry extends Group{
 		//imageUrl type: "text"
 		
 	 }
+	
+	public static List<Ministry> getRandomList(boolean isPublished){
+		
+		
+		return Ministry.executeQuery('from Ministry where isPublished = :isPublished order by rand()', 
+										[isPublished:isPublished])
+	}
+	public static List<Ministry> getRandomList(int maxElements, boolean isPublished){
+		
+		
+		return Ministry.executeQuery('from Ministry where isPublished = :isPublished order by rand()', 
+										[isPublished:isPublished, max:maxElements])
+	}
+	
 	public StringBuffer cortarCadenaPorPuntos(String cadena, int maxSize) {
 		cadena = Jsoup.parse(cadena).text();
 		

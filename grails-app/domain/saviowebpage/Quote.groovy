@@ -12,6 +12,6 @@ class Quote {
 	public static List<Quote> getRandomList(int maxElements){
 		
 		
-		return Quote.executeQuery('from Quote order by rand()', [max: 3])
+		return Quote.executeQuery('from Quote order by rand()', [max: maxElements])
 	}
 }

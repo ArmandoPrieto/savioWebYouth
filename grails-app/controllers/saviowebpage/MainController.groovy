@@ -19,11 +19,12 @@ class MainController {
 		
 		def quoteList = Quote.getRandomList(grailsApplication.config.quotesNumber)
 		def c = Ministry.createCriteria()
-		def ministries = c.list {
+	/*	def ministries = c.list {
 			eq("isPublished", true)
 			sqlRestriction "from Ministry order by rand()"
 			//maxResults(6)
-		}
+		}*/
+		def ministries = Ministry.getRandomList(true)
 		def c1 = Resource.createCriteria()
 		def links = c1.list {
 			eq("type", ResourceType.LINK)
