@@ -4,7 +4,7 @@
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="index.html"> <img src="${resource(dir: 'images', file: 'church-logo.png')}" alt="church logo" class="img-responsive"></a> </div>
+      <g:link class="navbar-brand" controller="main"> <img src="${resource(dir: 'images', file: 'church-logo.png')}" alt="church logo" class="img-responsive"></g:link> </div>
     <div class="navbar-collapse collapse">
     
  
