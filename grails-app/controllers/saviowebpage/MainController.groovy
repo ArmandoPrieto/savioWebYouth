@@ -21,11 +21,13 @@ class MainController {
 		def c = Ministry.createCriteria()
 		def ministries = c.list {
 			eq("isPublished", true)
+			sqlRestriction "from Ministry order by rand()"
 			//maxResults(6)
 		}
 		def c1 = Resource.createCriteria()
 		def links = c1.list {
 			eq("type", ResourceType.LINK)
+			
 		}
 		def c2 = Resource.createCriteria()
 		def videos = c2.list {
