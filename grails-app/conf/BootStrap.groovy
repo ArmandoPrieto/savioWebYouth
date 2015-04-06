@@ -68,7 +68,7 @@ transient springSecurityService
 				
 				def topMenu = new Menu(title:"Home", url:"#top",  active:true, subMenu: null).save(flush: true)
 				def eventsMenu = new Menu(title:"Program & Events", url:"#events",  active:false, subMenu: null).save(flush: true)
-				def bulletinMenu = new Menu(title:"Bulletin", url:"#bulletin",  active:false, subMenu: null).save(flush: true)
+				def bulletinMenu = new Menu(title:"Blog", url:servletContext.getContextPath()+"/blog",  active:false, subMenu: null).save(flush: true)
 				def quotesMenu = new SubMenu(title:"Quotes", url:"#quotes",  active:false, subMenu: null).save(flush: true)
 				def linksMenu = new SubMenu(title:"Recommended Links", url:"#recommendedLinks",  active:false, subMenu: null).save(flush: true)
 				def videosMenu = new SubMenu(title:"Recommended Videos", url:"#recommendedVideos",  active:false, subMenu: null).save(flush: true)

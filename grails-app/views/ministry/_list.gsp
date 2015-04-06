@@ -6,7 +6,7 @@
 		<div class="col-md-4 col-sm-6 has-margin-bottom">
 		<%--  <div style="width:370px;height:120px;overflow:hidden">--%>
 		<g:link controller="ministry" action="show" id="${it.id}">
-		 <img class="img-responsive" src="${createLink(controller: 'image', action: 'thumbnail',id: it.imageId, absolute: true)}" alt="catholic church" />
+		 <img class="img-responsive img-ministry" src="${createLink(controller: 'image', action: 'thumbnail',id: it.imageId, absolute: true)}" alt="catholic church" />
 		</g:link>
 		<%--  </div>--%>
 		    <h5>${it.name.toUpperCase()}</h5>
