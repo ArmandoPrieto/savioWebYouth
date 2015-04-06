@@ -9,7 +9,9 @@
 		 <img class="img-responsive img-ministry" src="${createLink(controller: 'image', action: 'thumbnail',id: it.imageId, absolute: true)}" alt="catholic church" />
 		</g:link>
 		<%--  </div>--%>
+			<g:link controller="ministry" action="show" id="${it.id}">
 		    <h5>${it.name.toUpperCase()}</h5>
+		    </g:link>
 		    <p>${it.cortarCadenaPorPuntos(it.description,200).toString()}</p>
 		    <p><g:link controller="ministry" action="show" id="${it.id}" role="button">Read more →</g:link></p>
 		</div>
