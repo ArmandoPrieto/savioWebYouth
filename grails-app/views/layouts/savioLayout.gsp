@@ -49,7 +49,7 @@
     <g:javascript library="jquery" plugin="jquery"/>
           <!-- Bootstrap -->
    
-  
+   <asset:javascript src="application.js"/>
    
       <g:layoutHead />
    </head>

@@ -30,8 +30,10 @@ if (typeof jQuery !== 'undefined') {
 $(document).ready(function () {
 	
 	$('.navbar-collapse > ul > li').click(function(){
-		if (!$('this').hasChildNodes()) {
+	
+		if ($(this).has('ul').length<1) {
 		    // It has at least one
+			
 			$('.navbar-collapse').removeClass('in');
 		}
 		
@@ -39,8 +41,6 @@ $(document).ready(function () {
 	});
 	$('.navbar-collapse > ul > li > ul> li').click(function(){
 			$('.navbar-collapse').removeClass('in');
-		
-		
 	});
 	
 });
