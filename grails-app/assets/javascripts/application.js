@@ -29,6 +29,10 @@ if (typeof jQuery !== 'undefined') {
 
 $(document).ready(function () {
 	
+  	  $('img').load(function() {
+  	        $(this).fadeIn('slow');
+  	    });
+	
 	$('.navbar-collapse > ul > li').click(function(){
 	
 		if ($(this).has('ul').length<1) {
