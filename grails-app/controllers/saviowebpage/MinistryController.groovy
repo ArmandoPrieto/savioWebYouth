@@ -19,11 +19,7 @@ class MinistryController {
 
     def show(Ministry ministryInstance) {
 		if(ministryInstance.getIsPublished()){
-			def c = Ministry.createCriteria()
-			def results = c.list {
-				eq("isPublished", true)
-				maxResults(3)
-			}
+			def results = Ministry.getRandomList(3, true)
 			respond ministryInstance, model:[ministries: results]
 		}else{
 		redirect(controller:"ministry",action:"show1",id:ministryInstance.id)
