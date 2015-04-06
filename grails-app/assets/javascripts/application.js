@@ -26,3 +26,21 @@ if (typeof jQuery !== 'undefined') {
 		});
 	})(jQuery);
 }
+
+$(document).ready(function () {
+	
+	$('.navbar-collapse > ul > li').click(function(){
+		if (!$('this').hasChildNodes()) {
+		    // It has at least one
+			$('.navbar-collapse').removeClass('in');
+		}
+		
+		
+	});
+	$('.navbar-collapse > ul > li > ul> li').click(function(){
+			$('.navbar-collapse').removeClass('in');
+		
+		
+	});
+	
+});
