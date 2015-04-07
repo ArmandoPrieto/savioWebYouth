@@ -28,7 +28,7 @@ if (typeof jQuery !== 'undefined') {
 }
 
 $(document).ready(function () {
-	$('img').hide();
+//	$('img').hide();
   	  $('img').load(function() {
   	        $(this).fadeIn('slow');
   	    });
