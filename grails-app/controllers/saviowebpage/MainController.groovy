@@ -1,6 +1,7 @@
 package saviowebpage
 import administration.Menu
 import grails.util.Holders
+import java.text.SimpleDateFormat
 import common.PostListResponse
 import common.ResourceType
 
@@ -10,8 +11,6 @@ class MainController {
 	def GoogleBloggerReaderService
 	def grailsApplication
 	def main_page() {
-		def a = false
-		if(a == true){
 		PostListResponse postList = googleBloggerReaderService.getPosts(3)
 		
 		
@@ -49,10 +48,6 @@ class MainController {
 			 fragment: params.fragment.toString()])
 		
 		
-		}else{
-		render(view: 'countdown')
-		
-		}
 	}
 	
 }

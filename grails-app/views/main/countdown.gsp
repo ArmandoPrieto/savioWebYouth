@@ -37,7 +37,7 @@
 
 	<header>
 		<h1>We are working hard to finish this website</h1>
-		<p>Our developer, Armando, is doing his best to finish this website before the counter.</p>
+		<p>Our developer, <a href="https://twitter.com/armandoprieto">@armandoprieto</a>, is doing his best to finish this website before the counter.</p>
 	</header>
 
 	<div id="main">

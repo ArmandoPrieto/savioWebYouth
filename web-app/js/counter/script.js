@@ -3,18 +3,6 @@ $(document).ready(function(){
 
 
 	/* ---- Countdown timer ---- */
-	var date1 = new Date();
-	var date2 = new Date("April, 10 2015 19:01:00");
-	var timeDiff = date2.getTime() - date1.getTime();
-	var days = date2.getDay();
-	var hours = date2.getHours();
-	var minutes = date2.getMinutes();
-	
-
-	
-	
-	
-	
 	$('#counter').countdown({
 		timestamp : (new Date("April, 10 2015 19:01:00")).getTime()
 	});
