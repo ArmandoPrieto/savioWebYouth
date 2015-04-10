@@ -5,7 +5,7 @@ class CountdownFilters {
 	
 		def filters = {
 		   //applies filter to all the controllers
-		   allFilter(controller: '*', action: '*') {
+		   allFilter(controller: 'administration|login|resource|ministry|banner|quote|main', action: '*',invert: true) {
 			   before = {
 				   
 				  
