@@ -50,7 +50,7 @@
           Bellflower, CA<br>
           <br>
          
-          Email: <a href="#">youthministry@saintdominicsavio.org</a></p>
+          Email: <a href="#">youthcenter@saintdominicsavio.org</a></p>
       </div>
       <div class="col-sm-6 col-md-3">
         <h5>CONNECT</h5>
@@ -60,7 +60,8 @@
   </div>
   <div class="copyright">
     <div class="container">
-      <p class="text-center">Copyright © 2014 All rights reserved</p>
+    <p class="text-center">Developed by <a href="https://www.linkedin.com/in/armandoprieto">Armando Prieto</a></p>
+      <p class="text-center">Copyright © 2015 All rights reserved</p>
     </div>
   </div>
 </footer>
