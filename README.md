@@ -5,6 +5,4 @@ In a sense this is mor than a simple web site. It is CMS for youth ministries we
 
 It is connected with Google Services as:
 
-Google Calendar
-Blogger
-Google +
+Google Calendar, Blogger and Google +
